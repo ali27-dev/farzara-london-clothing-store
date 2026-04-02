@@ -1,6 +1,6 @@
 import styled from "styled-components";
-// import Logo from "./Logo";
-// import MainNav from "./MainNav";
+import Logo from "./Logo";
+import MainNav from "./MainNav";
 // import Uploader from "../data/Uploader";
 
 const StyleAside = styled.aside`
@@ -11,13 +11,14 @@ const StyleAside = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  border: 2px solid #000;
+  height: 100vh;
 `;
 function Sidebar() {
   return (
     <StyleAside>
-      <h1>SideBar</h1>
-      {/* <Logo /> */}
-      {/* <MainNav /> */}
+      <Logo />
+      <MainNav />
     </StyleAside>
   );
 }

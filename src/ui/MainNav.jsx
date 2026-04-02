@@ -1,16 +1,19 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const NavList = styled.ul`
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  align-items: center;
+  /* flex-direction: column; */
+  /* gap: 0.8rem; */
 `;
 
-const Link = styled.a`
+const StyleNavLink = styled(NavLink)`
   &:link,
   &:visited {
     display: flex;
     align-items: center;
+    /* justify-content: space-between; */
     gap: 1.2rem;
 
     color: var(--color-grey-600);
@@ -44,3 +47,51 @@ const Link = styled.a`
     color: var(--color-brand-600);
   }
 `;
+
+function MainNav() {
+  return (
+    <nav>
+      <NavList>
+        <li>
+          <StyleNavLink to="/">
+            {/* <HiOutlineHome /> */}
+            <span>Home</span>
+          </StyleNavLink>
+        </li>
+
+        <li>
+          <StyleNavLink to="/products">
+            {/* <HiOutlineCalendar /> */}
+            <span>Veraities</span>
+          </StyleNavLink>
+        </li>
+        <li>
+          <StyleNavLink to="/cart">
+            {/* <HiOutlineHomeModern /> */}
+            <span>Cart</span>
+          </StyleNavLink>
+        </li>
+        <li>
+          <StyleNavLink to="/wishlist">
+            {/* <HiOutlineUsers /> */}
+            <span>Wishlist</span>
+          </StyleNavLink>
+        </li>
+        <li>
+          <StyleNavLink to="/contactus">
+            {/* <HiOutlineCog6Tooth /> */}
+            <span>Contact us</span>
+          </StyleNavLink>
+        </li>
+        {/* <li>
+        <StyleNavLink to="account">
+          <Hi />
+          <span>Account</span>
+        </StyleNavLink>
+      </li> */}
+      </NavList>
+    </nav>
+  );
+}
+
+export default MainNav;
