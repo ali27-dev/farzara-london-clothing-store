@@ -5,27 +5,29 @@ import SearchBar from "./SearchBar";
 import Sidebar from "./Sidebar";
 import MainNav from "./MainNav";
 import Logo from "./Logo";
+import Navbar from "./Navbar";
 // import UserAvatar from "../features/authentication/UserAvatar";
 
 const StyledHeader = styled.header`
-  background-color: var(--color-grey-0);
+  /* background-color: var(--color-grey-0);
   padding: 1.5rem 1.8rem;
-  border-bottom: 1px var(--color-grey-100);
+  border-bottom: 1px var(--color-grey-100); */
 
-  display: flex;
+  /* display: flex;
   gap: 1.2rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
 `;
 
 function Header() {
   return (
     <StyledHeader>
       {/* <UserAvatar /> */}
-      <Logo />
+      {/* <Logo />
       <SearchBar />
       <MainNav />
-      <HeaderMenu />
+      <HeaderMenu /> */}
+      <Navbar />
     </StyledHeader>
   );
 }

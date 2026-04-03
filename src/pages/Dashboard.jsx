@@ -13,10 +13,10 @@ function Dashboard() {
   return (
     <>
       <StyledDashboard>
-        <Row type="horizontal">
-          <Heading as="h1">Dashboard</Heading>
+        {/* <Row type="horizontal">
+          <Heading as="h1">New Collections</Heading>
           <p>TEST</p>
-        </Row>
+        </Row> */}
         <HeroSection />
       </StyledDashboard>
       <Wishlist />
