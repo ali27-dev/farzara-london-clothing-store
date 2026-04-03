@@ -9,7 +9,7 @@ const StyledDashboard = styled.div`
   height: 100vh;
 `;
 
-function Dashboard() {
+function Home() {
   return (
     <>
       <StyledDashboard>
@@ -24,4 +24,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Home;

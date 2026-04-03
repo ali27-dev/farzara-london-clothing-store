@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import GlobalStyles from "./styles/GlobalStyles";
 
 import AppLayout from "./ui/AppLayout";
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
 import OrderDetails from "./pages/OrderDetails";
 import Wishlist from "./pages/Wishlist";
 import Products from "./pages/Products";
@@ -19,8 +19,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route index element={<Navigate replace to="dashboard" />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route index element={<Navigate replace to="home" />} />
+            <Route path="/home" element={<Home />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="orderdetails/:orderId" element={<OrderDetails />} />
             <Route path="cart" element={<Cart />} />

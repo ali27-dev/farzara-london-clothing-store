@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { NavLink, Link } from "react-router-dom";
 import { ShoppingCart, User, Search, Menu, X } from "lucide-react";
 
 // --- Styled Components ---
@@ -17,12 +18,15 @@ const Nav = styled.nav`
   height: 80px; /* Fixed height helps with alignment */
 `;
 
-const Logo = styled.h1`
+// 2. Bonus: Logo as a Link
+// (Professional practice: Clicking the logo always returns to Home)
+const Logo = styled(Link)`
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 1.5px;
   color: #1a1a1a;
   text-transform: uppercase;
+  text-decoration: none;
   margin: 0;
 
   span {
@@ -58,25 +62,49 @@ const NavLinks = styled.ul`
   }
 `;
 
-const NavLink = styled.li`
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #333;
-  cursor: pointer;
-  text-transform: uppercase;
+const StyledNavLink = styled(NavLink)`
+  &:link,
+  &:visited {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    position: relative;
+    padding: 0.5rem 0;
+  }
 
-  &:hover {
-    color: #bcac76;
+  /* PROFESSIONAL TIP: 
+     React Router's 'active' class is caught here 
+  */
+  &:hover,
+  &.active {
+    color: #bcac76; /* FarZara Gold */
+  }
+
+  /* Underline effect for the Active link */
+  &.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #bcac76;
+    transition: width 0.3s ease;
   }
 `;
-
 /* This search bar only shows on Desktop */
 const DesktopSearch = styled.div`
   display: flex;
   align-items: center;
   background: #f8f8f8;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  border-radius: 1.2rem;
   width: 300px;
 
   input {
@@ -85,7 +113,7 @@ const DesktopSearch = styled.div`
     outline: none;
     margin-left: 0.8rem;
     width: 100%;
-    font-size: 0.85rem;
+    font-size: 1.4rem;
   }
 
   @media (max-width: 1024px) {
@@ -149,6 +177,27 @@ const MenuBtn = styled.div`
   }
 `;
 
+// 1. The IconWrapper: Centering and Navigation
+const IconWrapper = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  color: #1a1a1a;
+  transition: all 0.2s ease;
+  text-decoration: none; /* Removes default underline from Link */
+
+  &:hover {
+    color: #bcac76; /* FarZara Gold */
+    transform: translateY(-2px); /* Subtle lift effect */
+  }
+
+  svg {
+    display: block; /* Removes weird inline spacing below SVGs */
+  }
+`;
+
 // --- Component ---
 
 const Navbar = () => {
@@ -156,10 +205,9 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Logo>
+      <Logo to="/home">
         Far<span>Zara</span> London
       </Logo>
-
       {/* Desktop Version Search */}
       <DesktopSearch>
         <Search size={16} />
@@ -167,27 +215,37 @@ const Navbar = () => {
       </DesktopSearch>
 
       <NavLinks isOpen={isOpen}>
-        {/* Mobile Version Search (Appears at the top of the menu) */}
         <MobileSearch>
           <Search size={18} />
           <input type="text" placeholder="Search..." />
         </MobileSearch>
 
-        <NavLink>Home</NavLink>
-        <NavLink>Men</NavLink>
-        <NavLink>Women</NavLink>
-        <NavLink>Accessories</NavLink>
+        {/* These links now control the SPA navigation */}
+        <li>
+          <StyledNavLink to="/home">Home</StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/products">Products</StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/categories">Categories</StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/profile">Account</StyledNavLink>
+        </li>
       </NavLinks>
 
       <ActionIcons>
-        <div className="icon-wrapper">
+        {/* Now navigates to Profile */}
+        <IconWrapper to="/profile">
           <User size={20} />
-        </div>
+        </IconWrapper>
 
-        <div className="icon-wrapper">
+        {/* Now navigates to Cart */}
+        <IconWrapper to="/cart">
           <ShoppingCart size={20} />
           <Badge>0</Badge>
-        </div>
+        </IconWrapper>
 
         <MenuBtn onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
