@@ -3,7 +3,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 import AppLayout from "./ui/AppLayout";
 import Home from "./pages/Home";
-import OrderDetails from "./pages/OrderDetails";
+import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
@@ -11,6 +11,7 @@ import Checkin from "./pages/Checkin";
 import ContactUs from "./pages/ContactUs";
 import PageNotFound from "./pages/PageNotFound";
 import Categories from "./pages/Categories";
+import Account from "./pages/Account";
 // import Checkout from "./pages/Checkout";
 
 function App() {
@@ -23,13 +24,14 @@ function App() {
             <Route index element={<Navigate replace to="home" />} />
             <Route path="/home" element={<Home />} />
             <Route path="wishlist" element={<Wishlist />} />
-            <Route path="orderdetails/:orderId" element={<OrderDetails />} />
+            <Route path="products/:productId" element={<ProductDetails />} />
             <Route path="cart" element={<Cart />} />
             <Route path="products" element={<Products />} />
             <Route path="checkin/:orderId" element={<Checkin />} />
             <Route path="categories" element={<Categories />} />
             {/* <Route path="/" element={<Checkout />} /> */}
             <Route path="contactus" element={<ContactUs />} />
+            <Route path="account" element={<Account />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>

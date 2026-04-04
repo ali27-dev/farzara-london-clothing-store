@@ -133,7 +133,7 @@ const SliderContainer = styled.section`
   position: relative; /* Needed for positioning slides and controls */
   overflow: hidden; /* Critical to hide the sliding images */
   border-radius: 1.5rem; /* Subtle rounding for a premium feel */
-
+  margin-bottom: 3.8rem;
   @media (max-width: 768px) {
     height: 60vh;
   }

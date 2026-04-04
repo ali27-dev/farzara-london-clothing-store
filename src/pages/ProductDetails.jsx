@@ -1,4 +1,4 @@
-function OrderDetails() {
+function ProductDetails() {
   return (
     <div>
       <h1>Order Details</h1>
@@ -6,4 +6,4 @@ function OrderDetails() {
   );
 }
 
-export default OrderDetails;
+export default ProductDetails;

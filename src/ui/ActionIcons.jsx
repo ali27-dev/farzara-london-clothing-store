@@ -71,8 +71,8 @@ const MenuBtn = styled.div`
 function ActionIcons({ isOpen, setIsOpen }) {
   return (
     <StyleActionIcons>
-      {/* Now navigates to Profile */}
-      <IconWrapper to="/profile">
+      {/* Now navigates to Account */}
+      <IconWrapper to="/account">
         <User size={25} />
       </IconWrapper>
 
