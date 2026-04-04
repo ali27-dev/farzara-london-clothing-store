@@ -1,20 +1,33 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const StyledLogo = styled.div`
-  text-align: center;
-`;
+// 2. Bonus: Logo as a Link
+// (Professional practice: Clicking the logo always returns to Home)
+const StyleLogo = styled(Link)`
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0;
 
-const Img = styled.img`
-  height: 9.6rem;
-  /* height: 6.6rem; */
-  width: auto;
+  span {
+    color: #bcac76;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
 function Logo() {
   return (
-    <StyledLogo>
-      <Img src="/logo.png" alt="Logo" />
-    </StyledLogo>
+    <>
+      <StyleLogo to="/home">
+        Far<span>Zara</span> London
+      </StyleLogo>
+    </>
   );
 }
 

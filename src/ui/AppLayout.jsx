@@ -1,8 +1,7 @@
 /* eslint-disable */
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-// import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
 
 const StyleAppLayout = styled.div`
   display: grid;
@@ -28,8 +27,8 @@ const Container = styled.div`
 function AppLayout() {
   return (
     <StyleAppLayout>
-      <Header />
-      {/* <Sidebar /> */}
+      {/* <Navbar /> */}
+      <Navbar />
       <StyleMain>
         <Container>
           <Outlet />
