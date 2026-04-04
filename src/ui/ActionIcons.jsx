@@ -27,8 +27,8 @@ const Badge = styled.span`
   position: absolute;
   top: -6px;
   right: -8px;
-  background: #1a1a1a;
-  color: #fff;
+  background: var(--color-grey-900); /* replaces #1a1a1a */
+  color: var(--color-grey-0); /* replaces #fff */
   font-size: 10px;
   min-width: 16px;
   height: 16px;
@@ -37,6 +37,27 @@ const Badge = styled.span`
   justify-content: center;
   border-radius: 50%;
   font-weight: bold;
+`;
+const IconWrapper = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  color: var(--color-brand-600); /* brand accent color for icons */
+  transition: all 0.2s ease;
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    color: var(--color-brand-600);
+    transform: translateY(-2px);
+  }
+
+  svg {
+    display: block;
+    transition: color 0.2s, transform 0.2s;
+  }
 `;
 
 const MenuBtn = styled.div`
@@ -47,39 +68,17 @@ const MenuBtn = styled.div`
     display: flex;
   }
 `;
-
-// 1. The IconWrapper: Centering and Navigation
-const IconWrapper = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
-  color: #1a1a1a;
-  transition: all 0.2s ease;
-  text-decoration: none; /* Removes default underline from Link */
-
-  &:hover {
-    color: #bcac76; /* FarZara Gold */
-    transform: translateY(-2px); /* Subtle lift effect */
-  }
-
-  svg {
-    display: block; /* Removes weird inline spacing below SVGs */
-  }
-`;
-
 function ActionIcons({ isOpen, setIsOpen }) {
   return (
     <StyleActionIcons>
       {/* Now navigates to Profile */}
       <IconWrapper to="/profile">
-        <User size={20} />
+        <User size={25} />
       </IconWrapper>
 
       {/* Now navigates to Cart */}
       <IconWrapper to="/cart">
-        <ShoppingCart size={20} />
+        <ShoppingCart size={25} />
         <Badge>0</Badge>
       </IconWrapper>
 

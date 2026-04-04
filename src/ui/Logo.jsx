@@ -7,20 +7,19 @@ const StyleLogo = styled(Link)`
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  color: #1a1a1a;
+  color: var(--color-grey-900); /* replaces #1a1a1a */
   text-transform: uppercase;
   text-decoration: none;
   margin: 0;
 
   span {
-    color: #bcac76;
+    color: var(--color-brand-600); /* replaces #bcac76 */
   }
 
   @media (max-width: 480px) {
     font-size: 1.2rem;
   }
 `;
-
 function Logo() {
   return (
     <>

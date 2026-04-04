@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import SlideControlbtns from "./SlideControlbtns";
+import Heading from "./Heading";
+import ButtonCTA from "./ButtonCTA";
 
 // --- MOCK DATA (Future Database Structure) ---
 const sliderImages = [
@@ -35,10 +37,99 @@ const sliderImages = [
 ];
 
 // --- Styled Components ---
+const HeroHeader = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  padding: 3.5rem 5% 1.5rem 5%;
+  text-align: center;
+  position: relative;
+  z-index: 30;
+  animation: fadeSlideDown 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 768px) {
+    margin-bottom: 1.2rem;
+    padding: 2rem 5% 1rem 5%;
+  }
+
+  @keyframes fadeSlideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.98);
+    }
+    60% {
+      opacity: 0.7;
+      transform: translateY(10px) scale(1.01);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+`;
+const HeroTitle = styled.h1`
+  font-family: "Playfair Display", "Merriweather", serif;
+  font-size: 4.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-grey-900);
+  margin: 0;
+  line-height: 1.1;
+  background: linear-gradient(
+    90deg,
+    var(--color-grey-900) 60%,
+    var(--color-brand-600) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(191, 167, 122, 0.08));
+  animation: fadeInTitle 1.5s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+  @media (max-width: 768px) {
+    font-size: 2.1rem;
+  }
+  /* ...keyframes... */
+`;
+const HeroSubtext = styled.p`
+  font-family: "Inter", "Roboto", Arial, sans-serif;
+  font-size: 1.8rem;
+  color: var(--color-grey-900);
+  max-width: 68rem;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0.7rem;
+  padding: 1.1rem 2.2rem;
+  box-shadow: 0 2px 16px 0 rgba(191, 167, 122, 0.07);
+  animation: fadeInSubtext 1.5s 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+  /* ...keyframes... */
+
+  @keyframes fadeInSubtext {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+    }
+    100% {
+      opacity: 0.92;
+      transform: translateY(0) scale(1);
+    }
+  }
+`;
 
 const SliderContainer = styled.section`
   height: 80vh; /* Consistent high-fashion height */
-  /* width: 100%; */
+  width: 100%;
   position: relative; /* Needed for positioning slides and controls */
   overflow: hidden; /* Critical to hide the sliding images */
   border-radius: 1.5rem; /* Subtle rounding for a premium feel */
@@ -133,118 +224,6 @@ const ContentBox = styled.div`
   }
 `;
 
-const Subtitle = styled.p`
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #888;
-  margin-bottom: 0.8rem;
-  font-weight: 500;
-`;
-
-const MainHeading = styled.h2`
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 900;
-  line-height: 1.1;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  letter-spacing: -1px;
-`;
-
-const CTAButton = styled.button`
-  width: 24rem;
-  background-color: #1a1a1a;
-  color: #fff;
-  border: none;
-  border-radius: 1.2rem;
-  padding: 1.2rem 2.8rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background-color: #bcac76; /* FarZara Gold */
-    transition: width 0.3s ease;
-  }
-
-  &:hover {
-    &::after {
-      width: 100%;
-    }
-    svg {
-      transform: translateX(5px);
-    }
-  }
-
-  svg {
-    transition: transform 0.3s ease;
-  }
-
-  @media (max-width: 480px) {
-    padding: 1rem 2rem;
-    width: 100%;
-    justify-content: center;
-  }
-`;
-
-// Optional: Manual Controls (Chevron arrows)
-const ManualControls = styled.div`
-  position: absolute;
-  z-index: 30;
-  display: flex;
-  gap: 1rem;
-
-  /* Desktop View: Bottom Right */
-  bottom: 5%;
-  right: 5%;
-
-  @media (max-width: 768px) {
-    /* Mobile View: Top Right (Away from the content box) */
-    bottom: auto; /* Reset bottom */
-    top: 5%; /* Move to top */
-    right: 5%;
-  }
-`;
-const ArrowBtn = styled.button`
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  color: #1a1a1a;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(8px); /* Luxury glass effect */
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: #1a1a1a;
-    color: #fff;
-  }
-
-  @media (max-width: 480px) {
-    width: 36px;
-    height: 36px;
-    background: rgba(255, 255, 255, 0.9); /* More solid on tiny screens */
-  }
-`;
 // --- React Component with Logic ---
 
 const HeroSlider = () => {
@@ -284,37 +263,38 @@ const HeroSlider = () => {
   }, []);
   */
   return (
-    <SliderContainer>
-      {/* Map through the images array (Future: map through API data) */}
-      {sliderImages.map((slide, index) => (
-        <React.Fragment key={slide.id}>
-          {/* The background image slide */}
-          <Slide
-            style={{ backgroundImage: `url(${slide.url})` }}
-            active={index === currentIndex}
-          />
+    <>
+      <HeroHeader>
+        <HeroTitle>Discover New Collections</HeroTitle>
+        <HeroSubtext>
+          Discover the latest in fashion and design — where timeless tailoring
+          meets modern streetwear. Explore curated seasonal pieces crafted for
+          quality and effortless style.
+        </HeroSubtext>
+      </HeroHeader>
+      <SliderContainer>
+        {/* Map through the images array (Future: map through API data) */}
+        {sliderImages.map((slide, index) => (
+          <React.Fragment key={slide.id}>
+            {/* The background image slide */}
+            <Slide
+              style={{ backgroundImage: `url(${slide.url})` }}
+              active={index === currentIndex}
+            />
 
-          {/* The text content box associated with this slide */}
-          <ContentBox active={index === currentIndex}>
-            <Subtitle>{slide.subtitle}</Subtitle>
-            <MainHeading>{slide.title}</MainHeading>
-            <CTAButton>
-              Explore Collection <ArrowRight size={18} />
-            </CTAButton>
-          </ContentBox>
-        </React.Fragment>
-      ))}
+            {/* The text content box associated with this slide */}
+            <ContentBox active={index === currentIndex}>
+              <Heading as="h5">{slide.subtitle}</Heading>
+              <Heading as="h4">{slide.title}</Heading>
+              <ButtonCTA />
+            </ContentBox>
+          </React.Fragment>
+        ))}
 
-      {/* Optional: Manual controls for better UX */}
-      <ManualControls>
-        <ArrowBtn onClick={prevSlide} aria-label="Previous Slide">
-          <ChevronLeft size={20} />
-        </ArrowBtn>
-        <ArrowBtn onClick={nextSlide} aria-label="Next Slide">
-          <ChevronRight size={20} />
-        </ArrowBtn>
-      </ManualControls>
-    </SliderContainer>
+        {/* Optional: Manual controls for better UX */}
+        <SlideControlbtns nextSlide={nextSlide} prevSlide={prevSlide} />
+      </SliderContainer>
+    </>
   );
 };
 

@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import Checkin from "./pages/Checkin";
 import ContactUs from "./pages/ContactUs";
 import PageNotFound from "./pages/PageNotFound";
+import Categories from "./pages/Categories";
 // import Checkout from "./pages/Checkout";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="products" element={<Products />} />
             <Route path="checkin/:orderId" element={<Checkin />} />
+            <Route path="categories" element={<Categories />} />
             {/* <Route path="/" element={<Checkout />} /> */}
             <Route path="contactus" element={<ContactUs />} />
           </Route>

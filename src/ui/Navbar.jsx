@@ -13,8 +13,8 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center; /* Vital for vertical centering */
   padding: 0 5%;
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: var(--color-grey-0); /* Use global background */
+  box-shadow: 0 2px 10px var(--color-grey-300); /* Use global shadow color */
   position: sticky;
   top: 0;
   z-index: 1000;

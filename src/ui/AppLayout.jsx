@@ -27,7 +27,6 @@ const Container = styled.div`
 function AppLayout() {
   return (
     <StyleAppLayout>
-      {/* <Navbar /> */}
       <Navbar />
       <StyleMain>
         <Container>

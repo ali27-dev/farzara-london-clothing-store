@@ -18,39 +18,33 @@ const NavLinksUL = styled.ul`
     top: 80px;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: var(--color-grey-0); /* replaces #fff */
     padding: 2rem 5%;
     gap: 1.5rem;
-    border-top: 1px solid #f0f0f0;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid var(--color-grey-200); /* replaces #f0f0f0 */
+    box-shadow: 0 10px 15px var(--color-grey-300); /* replaces rgba(0,0,0,0.05) */
   }
 `;
-
 const StyledNavLink = styled(NavLink)`
   &:link,
   &:visited {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    color: #333;
-    font-size: 1.3rem;
+    color: var(--color-grey-800); /* Use global grey for default */
+    font-size: 1.5rem;
     font-weight: 500;
     text-decoration: none;
-    text-transform: uppercase;
     transition: all 0.3s;
     position: relative;
     padding: 0.5rem 0;
   }
 
-  /* PROFESSIONAL TIP: 
-     React Router's 'active' class is caught here 
-  */
   &:hover,
   &.active {
-    color: #bcac76; /* FarZara Gold */
+    color: var(--color-brand-600); /* Use global brand color for active/hover */
   }
 
-  /* Underline effect for the Active link */
   &.active::after {
     content: "";
     position: absolute;
@@ -58,7 +52,7 @@ const StyledNavLink = styled(NavLink)`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #bcac76;
+    background-color: var(--color-brand-600);
     transition: width 0.3s ease;
   }
 `;
@@ -78,7 +72,7 @@ function NavLinks({ isOpen }) {
         <StyledNavLink to="/categories">Categories</StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/profile">Account</StyledNavLink>
+        <StyledNavLink to="/contactus">Contact us</StyledNavLink>
       </li>
     </NavLinksUL>
   );
