@@ -2,13 +2,9 @@
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import FooterSection from "./FooterSection";
 
-const StyleAppLayout = styled.div`
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
-`;
+const StyleAppLayout = styled.div``;
 
 const StyleMain = styled.main`
   background-color: var(--color-grey-50);
@@ -33,6 +29,7 @@ function AppLayout() {
           <Outlet />
         </Container>
       </StyleMain>
+      <FooterSection />
     </StyleAppLayout>
   );
 }
