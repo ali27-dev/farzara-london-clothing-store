@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const ProductsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2.2rem;
+  gap: 5.4rem 2.8rem; /* More space between cards */
   margin: 0 auto;
   padding: 0 5%;
-
+  // ...media queries...
   @media (min-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -30,7 +30,7 @@ export const Card = styled.div`
   position: relative;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--color-grey-100);
-
+  margin: 0 auto 2.5rem auto;
   /* CRITICAL FIX: Ensure the card doesn't grow too large */
   width: 100%;
   max-width: 32rem; /* Limits size to a professional width */
@@ -148,4 +148,20 @@ export const AddToCartBtn = styled.button`
   &:hover {
     background-color: var(--color-brand-600);
   }
+`;
+
+export const SoldOutBadge = styled.span`
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  background-color: var(--color-grey-400);
+  color: var(--color-grey-0);
+  padding: 0.4rem 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  z-index: 11;
+  border-radius: var(--border-radius-tiny);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.92;
 `;

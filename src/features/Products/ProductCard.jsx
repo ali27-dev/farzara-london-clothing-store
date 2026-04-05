@@ -4,7 +4,8 @@ import { Heart } from "lucide-react";
 import * as S from "./ProductCardStyles";
 
 const ProductCard = ({ product }) => {
-  const { name, category, price, discount, images, season } = product;
+  const { name, category, price, discount, images, season, isSoldOut } =
+    product;
 
   // High-performance hover state
   const [isHovered, setIsHovered] = useState(false);
@@ -51,6 +52,7 @@ const ProductCard = ({ product }) => {
         <S.PriceGroup>
           <S.CurrentPrice>£{salePrice.toFixed(2)}</S.CurrentPrice>
           {hasDiscount && <S.OldPrice>£{price.toFixed(2)}</S.OldPrice>}
+          {isSoldOut && <S.SoldOutBadge>Sold Out</S.SoldOutBadge>}
         </S.PriceGroup>
       </S.Info>
 

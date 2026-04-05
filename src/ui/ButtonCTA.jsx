@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ArrowRight } from "lucide-react";
 
 const StyleCTAButton = styled.button`
   width: 24rem;
-  background-color: var(--color-grey-900); /* replaces #1a1a1a */
-  color: var(--color-grey-0); /* replaces #fff */
+  background-color: #1a1a1a;
+  color: #fff;
   border: none;
   border-radius: 1.2rem;
   padding: 1.2rem 2.8rem;
   font-size: 1.2rem;
   font-weight: 600;
+  /* text-transform: uppercase; */
   letter-spacing: 2px;
   cursor: pointer;
   display: inline-flex;
@@ -26,7 +28,7 @@ const StyleCTAButton = styled.button`
     left: 0;
     width: 0%;
     height: 3px;
-    background-color: var(--color-brand-600); /* replaces #bcac76 */
+    background-color: #bcac76; /* FarZara Gold */
     transition: width 0.3s ease;
   }
 
@@ -52,9 +54,14 @@ const StyleCTAButton = styled.button`
 
 function ButtonCTA() {
   return (
-    <StyleCTAButton>
-      Explore Collection <ArrowRight size={18} />
-    </StyleCTAButton>
+    <Link
+      to="/products"
+      style={{ textDecoration: "none", display: "inline-block" }}
+    >
+      <StyleCTAButton>
+        Explore Collection <ArrowRight size={18} />
+      </StyleCTAButton>
+    </Link>
   );
 }
 
