@@ -102,7 +102,11 @@ const GlobalStyles = createGlobalStyle`
 
 html {
   font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
 }
+section {
+    scroll-margin-top: 8rem; 
+  }
 
 body {
   font-family: "Poppins", sans-serif;

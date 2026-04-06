@@ -12,6 +12,7 @@ import ContactUs from "./pages/ContactUs";
 import PageNotFound from "./pages/PageNotFound";
 import Categories from "./pages/Categories";
 import Account from "./pages/Account";
+// import ScrollToTop from "./ui/ScrollToTop";
 // import Checkout from "./pages/Checkout";
 
 function App() {

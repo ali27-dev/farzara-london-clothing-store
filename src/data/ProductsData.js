@@ -2,8 +2,10 @@ const productsData = [
   {
     id: "p1",
     name: "Printed Lawn",
-    category: "Suits",
+    category: "2-piece",
     season: "Summer 2026",
+    featured: true,
+    bestSelling: false,
     isSoldOut: false,
     price: 450.0,
     discount: 15, // 15% off
@@ -19,9 +21,10 @@ const productsData = [
     id: "p2",
     name: "Silk Evening Gown - Crimson",
     category: "Dresses",
-    season: "Summer 2026",
+    season: "Summer",
     price: 290.0,
     discount: 0,
+    bestSelling: true,
     isSoldOut: true,
     images: [
       "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop", // Front
@@ -33,9 +36,11 @@ const productsData = [
   },
   {
     id: "p3",
-    name: "Oversized Cotton Tee",
-    category: "T-Shirts",
-    season: "All Season",
+    name: "Oversized Cotton Tee T-Shirt",
+    season: "summer",
+    category: "3-piece",
+    featured: true,
+    bestSelling: false,
     price: 45.0,
     isSoldOut: false,
     discount: 10,
@@ -51,7 +56,7 @@ const productsData = [
     id: "p4",
     name: "Checkered Slim-Fit Trousers",
     category: "Pants",
-    season: "Autumn 2026",
+    season: "winter",
     price: 85.0,
     isSoldOut: false,
     discount: 0,
@@ -79,7 +84,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p6",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -94,7 +99,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p7",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -109,7 +114,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p8",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -124,7 +129,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p9",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -139,7 +144,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p10",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -154,7 +159,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p11",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -169,7 +174,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p12",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -184,7 +189,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p13",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -199,7 +204,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p14",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -214,7 +219,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p15",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -229,7 +234,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p16",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -244,7 +249,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p17",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -259,7 +264,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p18",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -274,7 +279,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p19",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -289,7 +294,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p20",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -304,7 +309,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p21",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -319,7 +324,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p22",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -334,7 +339,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p23",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -349,7 +354,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p24",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -364,7 +369,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p25",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -379,7 +384,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p26",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -394,7 +399,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p27",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -409,7 +414,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p28",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -424,7 +429,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p29",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -439,7 +444,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p30",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -454,7 +459,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p31",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -469,7 +474,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p32",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -484,7 +489,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p33",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -499,7 +504,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p34",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -514,7 +519,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p35",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -529,7 +534,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p36",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -544,7 +549,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p37",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -559,7 +564,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p38",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -574,7 +579,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
+    id: "p39",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",
@@ -589,637 +594,7 @@ const productsData = [
     isNew: false,
   },
   {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter 2026",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-  },
-  {
-    id: "p5",
+    id: "p40",
     name: "Leather Chelsea Boots",
     category: "Accessories",
     season: "Winter 2026",

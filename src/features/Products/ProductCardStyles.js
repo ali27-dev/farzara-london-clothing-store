@@ -7,11 +7,13 @@ export const ProductsGrid = styled.div`
   margin: 0 auto;
   padding: 0 5%;
   // ...media queries...
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
-  @media (min-width: 900px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr !important;
+    gap: 2rem 0.5rem;
+    padding: 0 0.5rem;
   }
   @media (min-width: 1200px) {
     grid-template-columns: repeat(4, 1fr);
@@ -50,12 +52,16 @@ export const ImageContainer = styled.div`
   background-color: var(--color-grey-50);
   overflow: hidden;
   cursor: pointer;
+  z-index: 1;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: opacity 0.5s ease, transform 0.6s ease;
+    z-index: 1;
+    position: relative;
     transition: opacity 0.5s ease, transform 0.6s ease;
   }
 `;
@@ -69,7 +75,7 @@ export const Badge = styled.span`
   padding: 0.4rem 0.8rem;
   font-size: 1.1rem;
   font-weight: 700;
-  z-index: 10;
+  z-index: -1;
   border-radius: var(--border-radius-tiny);
 `;
 
@@ -77,7 +83,7 @@ export const WishlistBtn = styled.button`
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
-  z-index: 10;
+  z-index: -1;
   background: white;
   padding: 0.7rem;
   border-radius: 50%;
@@ -159,7 +165,7 @@ export const SoldOutBadge = styled.span`
   padding: 0.4rem 0.8rem;
   font-size: 1.1rem;
   font-weight: 700;
-  z-index: 11;
+  z-index: -1;
   border-radius: var(--border-radius-tiny);
   text-transform: uppercase;
   letter-spacing: 1px;
