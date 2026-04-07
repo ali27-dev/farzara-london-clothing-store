@@ -24,10 +24,10 @@ function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="home" />} />
             <Route path="/home" element={<Home />} />
-            <Route path="wishlist" element={<Wishlist />} />
-            <Route path="products/:productId" element={<ProductDetails />} />
-            <Route path="cart" element={<Cart />} />
             <Route path="products" element={<Products />} />
+            <Route path="products/:id" element={<ProductDetails />} />
+            <Route path="wishlist" element={<Wishlist />} />
+            <Route path="cart" element={<Cart />} />
             <Route path="checkin/:orderId" element={<Checkin />} />
             <Route path="categories" element={<Categories />} />
             {/* <Route path="/" element={<Checkout />} /> */}

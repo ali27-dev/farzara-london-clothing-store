@@ -75,7 +75,7 @@ export const Badge = styled.span`
   padding: 0.4rem 0.8rem;
   font-size: 1.1rem;
   font-weight: 700;
-  z-index: -1;
+  z-index: 99;
   border-radius: var(--border-radius-tiny);
 `;
 
@@ -83,7 +83,7 @@ export const WishlistBtn = styled.button`
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
-  z-index: -1;
+  z-index: 99;
   background: white;
   padding: 0.7rem;
   border-radius: 50%;
@@ -165,7 +165,7 @@ export const SoldOutBadge = styled.span`
   padding: 0.4rem 0.8rem;
   font-size: 1.1rem;
   font-weight: 700;
-  z-index: -1;
+  z-index: 1;
   border-radius: var(--border-radius-tiny);
   text-transform: uppercase;
   letter-spacing: 1px;

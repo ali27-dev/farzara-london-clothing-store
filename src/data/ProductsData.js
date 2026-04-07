@@ -1,25 +1,30 @@
 const productsData = [
   {
     id: "p1",
-    name: "Printed Lawn",
+    name: "SOORAJ MUKHI U",
+    fabric: "Printed Lawn",
     category: "2-piece",
     season: "Summer 2026",
     featured: true,
     bestSelling: false,
     isSoldOut: false,
     price: 450.0,
+    color: "Yellow",
     discount: 15, // 15% off
     images: [
       "https://www.chinyere.pk/cdn/shop/files/CS0513_06f26977-c47f-45ca-86f7-7bfeb13848ed_1066x.jpg?v=1773656534", // Front
       "https://www.chinyere.pk/cdn/shop/files/CS0513_4_a723f02b-66dc-4952-b7a1-42015e68b593_large.jpg?v=1773656534", // Back
     ],
     description:
-      "Tailored from premium Italian wool, this suit offers a sharp silhouette for the modern London gentleman.",
+      "3 Piece Suit The pack suit includes printed piece for shirt and trouser embroidered lawn dupatta and organza patch for dupatta.",
     isNew: true,
   },
+
   {
     id: "p2",
     name: "Silk Evening Gown - Crimson",
+    color: "Crimson Red",
+    fabric: "100% Pure Silk",
     category: "Dresses",
     season: "Summer",
     price: 290.0,
@@ -36,6 +41,8 @@ const productsData = [
   },
   {
     id: "p3",
+    color: "Off-White",
+    fabric: "Organic Cotton",
     name: "Oversized Cotton Tee T-Shirt",
     season: "summer",
     category: "3-piece",
@@ -54,6 +61,8 @@ const productsData = [
   },
   {
     id: "p4",
+    color: "Black & White",
+    fabric: "Wool Blend",
     name: "Checkered Slim-Fit Trousers",
     category: "Pants",
     season: "winter",
@@ -71,6 +80,8 @@ const productsData = [
   {
     id: "p5",
     name: "Leather Chelsea Boots",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     category: "Accessories",
     season: "Winter 2026",
     price: 180.0,
@@ -86,6 +97,8 @@ const productsData = [
   {
     id: "p6",
     name: "Leather Chelsea Boots",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     category: "Accessories",
     season: "Winter 2026",
     price: 180.0,
@@ -101,6 +114,8 @@ const productsData = [
   {
     id: "p7",
     name: "Leather Chelsea Boots",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     category: "Accessories",
     season: "Winter 2026",
     price: 180.0,
@@ -117,6 +132,8 @@ const productsData = [
     id: "p8",
     name: "Leather Chelsea Boots",
     category: "Accessories",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     season: "Winter 2026",
     price: 180.0,
     discount: 20,
@@ -131,6 +148,8 @@ const productsData = [
   {
     id: "p9",
     name: "Leather Chelsea Boots",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     category: "Accessories",
     season: "Winter 2026",
     price: 180.0,
@@ -147,6 +166,8 @@ const productsData = [
     id: "p10",
     name: "Leather Chelsea Boots",
     category: "Accessories",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     season: "Winter 2026",
     price: 180.0,
     discount: 20,
@@ -177,6 +198,8 @@ const productsData = [
     id: "p12",
     name: "Leather Chelsea Boots",
     category: "Accessories",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     season: "Winter 2026",
     price: 180.0,
     discount: 20,
@@ -207,6 +230,8 @@ const productsData = [
     id: "p14",
     name: "Leather Chelsea Boots",
     category: "Accessories",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     season: "Winter 2026",
     price: 180.0,
     discount: 20,
