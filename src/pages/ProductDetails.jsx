@@ -3,8 +3,10 @@ import { products } from "../data/ProductsData";
 import * as S from "./ProductDetailsStyle";
 import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
+import { useCart } from "../context/CartContext";
 
 function ProductDetails() {
+  const { addToCart } = useCart();
   const { id } = useParams();
   const navigate = useNavigate();
   const product = products.find((p) => String(p.id) === String(id));
@@ -54,7 +56,7 @@ function ProductDetails() {
           <S.CartBtn
             disabled={product.isSoldOut}
             title="Add to Cart"
-            onClick={() => navigate("/cart")}
+            onClick={() => addToCart(product)}
           >
             Add to Cart
           </S.CartBtn>

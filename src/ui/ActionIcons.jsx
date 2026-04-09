@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-import { ShoppingCart, User, Menu, X } from "lucide-react";
+import { ShoppingCart, User, Menu, X, Car } from "lucide-react";
 import { Link } from "react-router-dom";
+import CartSidebar from "./CartSidebar";
+import { useCart } from "../context/CartContext";
 
 const StyleActionIcons = styled.div`
   display: flex;
@@ -69,6 +71,8 @@ const MenuBtn = styled.div`
   }
 `;
 function ActionIcons({ isOpen, setIsOpen }) {
+  const { openSidebar, cartCount } = useCart();
+
   return (
     <StyleActionIcons>
       {/* Now navigates to Account */}
@@ -76,12 +80,12 @@ function ActionIcons({ isOpen, setIsOpen }) {
         <User size={25} />
       </IconWrapper>
 
-      {/* Now navigates to Cart */}
-      <IconWrapper to="/cart">
+      {/* Now opens the Cart Sidebar */}
+      <IconWrapper as="div" onClick={openSidebar}>
         <ShoppingCart size={25} />
-        <Badge>0</Badge>
+        <Badge>{cartCount}</Badge>
       </IconWrapper>
-
+      <CartSidebar />
       <MenuBtn onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </MenuBtn>

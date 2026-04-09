@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Heart } from "lucide-react";
 import * as S from "./ProductCardStyles";
+import { useCart } from "../../context/CartContext";
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
   const { name, category, price, discount, images, season, isSoldOut } =
     product;
 
@@ -56,8 +58,12 @@ const ProductCard = ({ product }) => {
         </S.PriceGroup>
       </S.Info>
 
-      <S.AddToCartBtn onClick={() => navigate("/cart")}>
-        Add to Cart
+      <S.AddToCartBtn
+        style={{ opacity: isSoldOut ? 0.5 : 1 }}
+        onClick={() => addToCart(product)}
+        disabled={isSoldOut}
+      >
+        {isSoldOut ? "Sold Out" : "Add to Cart"}
       </S.AddToCartBtn>
     </S.Card>
   );
