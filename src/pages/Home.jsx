@@ -1,5 +1,5 @@
 import HeroSection from "../ui/HeroSection";
-import Products from "./Products";
+import Products from "../features/Products/Products";
 
 function Home() {
   return (

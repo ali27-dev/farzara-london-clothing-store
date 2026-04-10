@@ -4,8 +4,8 @@ import GlobalStyles from "./styles/GlobalStyles";
 import AppLayout from "./ui/AppLayout";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
+import ProductPage from "./pages/ProductPage";
 import Wishlist from "./pages/Wishlist";
-import Products from "./pages/Products";
 import CartPage from "./pages/CartPage";
 import Checkin from "./pages/Checkin";
 import ContactUs from "./pages/ContactUs";
@@ -24,7 +24,7 @@ function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="home" />} />
             <Route path="/home" element={<Home />} />
-            <Route path="products" element={<Products />} />
+            <Route path="products" element={<ProductPage />} />
             <Route path="products/:id" element={<ProductDetails />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="cart" element={<CartPage />} />

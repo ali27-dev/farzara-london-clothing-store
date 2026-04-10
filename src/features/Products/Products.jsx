@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import { useState, useEffect, useRef, useMemo } from "react";
-import { products } from "../data/ProductsData";
+import { products } from "../../data/ProductsData";
 
-import * as S from "../features/Products/ProductCardStyles";
+import * as S from "./ProductCardStyles";
 
-import ProductCard from "../features/Products/ProductCard";
-import Heading from "../ui/Heading";
-import FilterBar from "../ui/FilterBar";
-import Row from "../ui/Row";
-import ButtonText from "../ui/ButtonText";
-import { useMoveBack } from "../hooks/useMoveBack";
+import ProductCard from "./ProductCard";
+import Heading from "../../ui/Heading";
+import FilterBar from "../../ui/FilterBar";
 // ...existing imports...
 
 const ProductsHeader = styled.section`
@@ -61,7 +58,6 @@ function Products() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [sortOpen, setSortOpen] = useState(false);
   const filterBarRef = useRef();
-  const moveBack = useMoveBack();
 
   // Close filter menu on outside click (mobile)
   useEffect(() => {
