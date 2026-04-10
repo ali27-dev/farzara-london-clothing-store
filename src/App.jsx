@@ -6,14 +6,14 @@ import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
 import Products from "./pages/Products";
-import Cart from "./pages/Cart";
+import CartPage from "./pages/CartPage";
 import Checkin from "./pages/Checkin";
 import ContactUs from "./pages/ContactUs";
 import PageNotFound from "./pages/PageNotFound";
 import Categories from "./pages/Categories";
 import Account from "./pages/Account";
 // import ScrollToTop from "./ui/ScrollToTop";
-// import Checkout from "./pages/Checkout";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -27,10 +27,10 @@ function App() {
             <Route path="products" element={<Products />} />
             <Route path="products/:id" element={<ProductDetails />} />
             <Route path="wishlist" element={<Wishlist />} />
-            <Route path="cart" element={<Cart />} />
+            <Route path="cart" element={<CartPage />} />
             <Route path="checkin/:orderId" element={<Checkin />} />
             <Route path="categories" element={<Categories />} />
-            {/* <Route path="/" element={<Checkout />} /> */}
+            <Route path="checkout" element={<Checkout />} />
             <Route path="contactus" element={<ContactUs />} />
             <Route path="account" element={<Account />} />
           </Route>

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 // THE OVERLAY (Dimmed background)
 export const Overlay = styled.div`

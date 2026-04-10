@@ -110,10 +110,6 @@ function Products() {
 
   return (
     <>
-      <Row type="horizontal">
-        <Heading as="h1">All Products</Heading>
-        <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
-      </Row>
       <ProductsHeader>
         <Heading style={{ marginBottom: "2.4rem" }} as="h1">
           Shop the Latest Arrivals
