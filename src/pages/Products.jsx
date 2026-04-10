@@ -7,6 +7,9 @@ import * as S from "../features/Products/ProductCardStyles";
 import ProductCard from "../features/Products/ProductCard";
 import Heading from "../ui/Heading";
 import FilterBar from "../ui/FilterBar";
+import Row from "../ui/Row";
+import ButtonText from "../ui/ButtonText";
+import { useMoveBack } from "../hooks/useMoveBack";
 // ...existing imports...
 
 const ProductsHeader = styled.section`
@@ -15,36 +18,23 @@ const ProductsHeader = styled.section`
   margin: 0 auto 2.5rem auto;
   padding: 2.5rem 5% 0 5%;
   text-align: center;
+  animation: fadeSlideDown 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  @keyframes fadeSlideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.98);
+    }
+    60% {
+      opacity: 0.7;
+      transform: translateY(10px) scale(1.01);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 `;
 
-const ProductsTitle = styled(Heading).attrs({ as: "h2" })`
-  font-family: "Playfair Display", "Merriweather", serif;
-  font-size: 3.8rem;
-  font-weight: 800;
-  color: var(--color-grey-900);
-  letter-spacing: 0.5px;
-  margin-bottom: 1.1rem;
-  background: linear-gradient(
-    90deg,
-    var(--color-grey-900) 60%,
-    var(--color-brand-600) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-`;
-
-const ProductsSubtext = styled.p`
-  font-size: 1.4rem;
-  color: var(--color-grey-600);
-  max-width: 48rem;
-  margin: 0 auto 0.5rem auto;
-  line-height: 1.6;
-  font-family: "Inter", "Roboto", Arial, sans-serif;
-  font-weight: 400;
-  opacity: 0.92;
-`;
 const SeeMoreBtn = styled.button`
   display: block;
   margin: 3rem auto 0 auto;
@@ -71,6 +61,7 @@ function Products() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [sortOpen, setSortOpen] = useState(false);
   const filterBarRef = useRef();
+  const moveBack = useMoveBack();
 
   // Close filter menu on outside click (mobile)
   useEffect(() => {
@@ -119,14 +110,21 @@ function Products() {
 
   return (
     <>
+      <Row type="horizontal">
+        <Heading as="h1">All Products</Heading>
+        <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
+      </Row>
       <ProductsHeader>
-        <ProductsTitle>Shop the Latest Arrivals</ProductsTitle>
-        <ProductsSubtext>
+        <Heading style={{ marginBottom: "2.4rem" }} as="h1">
+          Shop the Latest Arrivals
+        </Heading>
+        <Heading as="p">
           Discover our curated collection of luxury fashion, premium essentials,
           and exclusive seasonal pieces. Find your new favorites and elevate
           your wardrobe with FarZara's signature style.
-        </ProductsSubtext>
+        </Heading>
       </ProductsHeader>
+
       <FilterBar
         sortOpen={sortOpen}
         setSortOpen={setSortOpen}

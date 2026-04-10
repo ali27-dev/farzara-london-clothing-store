@@ -43,7 +43,6 @@ const HeroHeader = styled.header`
   align-items: center;
   justify-content: center;
   gap: 1.2rem;
-  margin-bottom: 2.5rem;
   padding: 3.5rem 5% 1.5rem 5%;
   text-align: center;
   position: relative;
@@ -66,62 +65,6 @@ const HeroHeader = styled.header`
     }
     100% {
       opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-`;
-const HeroTitle = styled.h1`
-  font-family: "Playfair Display", "Merriweather", serif;
-  font-size: 4.2rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-grey-900);
-  margin: 0;
-  line-height: 1.1;
-  background: linear-gradient(
-    90deg,
-    var(--color-grey-900) 60%,
-    var(--color-brand-600) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  filter: drop-shadow(0 2px 8px rgba(191, 167, 122, 0.08));
-  animation: fadeInTitle 1.5s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
-  @media (max-width: 768px) {
-    font-size: 2.1rem;
-  }
-  /* ...keyframes... */
-`;
-const HeroSubtext = styled.p`
-  font-family: "Inter", "Roboto", Arial, sans-serif;
-  font-size: 1.8rem;
-  color: var(--color-grey-900);
-  max-width: 68rem;
-  margin: 0 auto;
-  line-height: 1.6;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  opacity: 0.92;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 0.7rem;
-  padding: 1.1rem 2.2rem;
-  box-shadow: 0 2px 16px 0 rgba(191, 167, 122, 0.07);
-  animation: fadeInSubtext 1.5s 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 0.8rem 1rem;
-  }
-  /* ...keyframes... */
-
-  @keyframes fadeInSubtext {
-    0% {
-      opacity: 0;
-      transform: translateY(30px) scale(0.98);
-    }
-    100% {
-      opacity: 0.92;
       transform: translateY(0) scale(1);
     }
   }
@@ -265,12 +208,12 @@ const HeroSlider = () => {
   return (
     <>
       <HeroHeader>
-        <HeroTitle>Discover New Collections</HeroTitle>
-        <HeroSubtext>
+        <Heading as="h1">Discover New Collections</Heading>
+        <Heading as="p">
           Discover the latest in fashion and design — where timeless tailoring
           meets modern streetwear. Explore curated seasonal pieces crafted for
           quality and effortless style.
-        </HeroSubtext>
+        </Heading>
       </HeroHeader>
       <SliderContainer>
         {/* Map through the images array (Future: map through API data) */}
