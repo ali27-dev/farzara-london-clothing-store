@@ -1,9 +1,10 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { products } from "../data/ProductsData";
-import * as S from "./ProductDetailsStyle";
-import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
-import { useCart } from "../context/CartContext";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { products } from "../../data/ProductsData";
+import { FaHeart } from "react-icons/fa";
+import { useCart } from "../../context/CartContext";
+import * as S from "./ProductDetailsStyles";
 
 function ProductDetails() {
   const { addToCart } = useCart();

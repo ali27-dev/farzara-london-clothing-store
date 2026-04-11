@@ -27,7 +27,7 @@ function OrderSummary() {
         </S.SummaryRow>
 
         <S.CheckoutBtn onClick={() => navigate("/checkout")}>
-          Proceed to Checkout <Check size={18} />
+          Proceed to Checkout
         </S.CheckoutBtn>
 
         <S.ContinueBtn onClick={() => navigate("/products")}>

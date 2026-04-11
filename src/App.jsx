@@ -3,11 +3,11 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 import AppLayout from "./ui/AppLayout";
 import Home from "./pages/Home";
-import ProductDetails from "./pages/ProductDetails";
+import ProductDetails from "./features/Products/ProductDetails";
 import ProductPage from "./pages/ProductPage";
 import Wishlist from "./pages/Wishlist";
 import CartPage from "./pages/CartPage";
-import Checkin from "./pages/Checkin";
+// import Checkin from "./pages/Checkin";
 import ContactUs from "./pages/ContactUs";
 import PageNotFound from "./pages/PageNotFound";
 import Categories from "./pages/Categories";
@@ -28,7 +28,7 @@ function App() {
             <Route path="products/:id" element={<ProductDetails />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="cart" element={<CartPage />} />
-            <Route path="checkin/:orderId" element={<Checkin />} />
+            {/* <Route path="checkin/:orderId" element={<Checkin />} /> */}
             <Route path="categories" element={<Categories />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="contactus" element={<ContactUs />} />
