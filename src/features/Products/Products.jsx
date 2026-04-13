@@ -9,6 +9,11 @@ import Heading from "../../ui/Heading";
 import FilterBar from "../../ui/FilterBar";
 // ...existing imports...
 
+const StyleProductContainer = styled.div`
+  background-color: var(--color-grey-100);
+  border-radius: var(--border-radius-lg);
+  padding-bottom: 3.4rem;
+`;
 const ProductsHeader = styled.section`
   width: 100%;
   max-width: 1200px;
@@ -105,7 +110,7 @@ function Products() {
   const showMore = () => setVisibleCount((prev) => prev + 20);
 
   return (
-    <>
+    <StyleProductContainer>
       <ProductsHeader>
         <Heading style={{ marginBottom: "2.4rem" }} as="h1">
           Shop the Latest Arrivals
@@ -133,7 +138,7 @@ function Products() {
       {filteredProducts.length > visibleCount && (
         <SeeMoreBtn onClick={showMore}>See More Products</SeeMoreBtn>
       )}
-    </>
+    </StyleProductContainer>
   );
 }
 

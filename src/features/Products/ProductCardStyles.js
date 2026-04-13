@@ -6,6 +6,7 @@ export const ProductsGrid = styled.div`
   gap: 5.4rem 2.8rem; /* More space between cards */
   margin: 0 auto;
   padding: 0 5%;
+
   // ...media queries...
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr) !important;
