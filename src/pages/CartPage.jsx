@@ -1,19 +1,27 @@
-import { useMoveBack } from "../hooks/useMoveBack";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import ButtonText from "../ui/ButtonText";
 import CartDetails from "../features/CartProducts/CartDetails";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function CartPage() {
-  const moveBack = useMoveBack();
+  const { cart } = useCart();
+  const navigate = useNavigate();
 
   return (
     <>
       <Row type="horizontal">
         <Heading as="h1">All Cart Products</Heading>
-        <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
+        <ButtonText onClick={() => navigate("/products")}>
+          &larr; Back
+        </ButtonText>
       </Row>
-      <CartDetails />
+      {cart.length > 0 ? (
+        <CartDetails />
+      ) : (
+        "There is no Carted products yet!,Please go back to products section and shop now!"
+      )}
     </>
   );
 }

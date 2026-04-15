@@ -1,4 +1,96 @@
 const productsData = [
+  // UNSTITCHED COLLECTION
+  {
+    id: "unst-01",
+    name: "3 Piece Luxury Lawn Unstitched Suit",
+    category: "Unstitched",
+    season: "Summer-26",
+    price: 8500,
+    discount: 0,
+    images: [
+      "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=800",
+    ],
+    description: "Intricate embroidery on premium lawn fabric.",
+  },
+  {
+    id: "unst-02",
+    name: "2 Piece Printed Cotton Karandi",
+    category: "Unstitched",
+    season: "Spring-26",
+    price: 4200,
+    discount: 0,
+    images: [
+      "https://images.unsplash.com/photo-1606132205545-2c8c49f87424?q=80&w=800",
+    ],
+    description: "Perfect for daily spring wear.",
+  },
+
+  // SALE COLLECTION
+  {
+    id: "sale-01",
+    name: "Embroidered Chiffon Evening Wear",
+    category: "Pret",
+    season: "Winter-25",
+    price: 15000,
+    discount: 0, // 50% OFF
+    images: [
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800",
+    ],
+    description: "Grand winter clearance sale.",
+  },
+  {
+    id: "sale-02",
+    name: "Classic Silk Tunic",
+    category: "Pret",
+    season: "All Season",
+    price: 6000,
+    discount: 25, // 25% OFF
+    images: [
+      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800",
+    ],
+    description: "Limited time discount.",
+  },
+  // ... existing products ...
+  {
+    id: "u1",
+    name: "3 Piece Embroidered Lawn Unstitched",
+    category: "Unstitched",
+    season: "Summer-26",
+    price: 8500,
+    discount: 15,
+    isSale: true,
+    images: [
+      "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=800",
+      "https://i.imgur.com/fallback.png",
+    ],
+    description: "Premium lawn with chiffon dupatta.",
+  },
+  {
+    id: "u2",
+    name: "2 Piece Printed Unstitched Suit",
+    category: "Unstitched",
+    season: "Summer-26",
+    price: 4500,
+    discount: 0,
+    isSale: false,
+    images: [
+      "https://images.unsplash.com/photo-1606132205545-2c8c49f87424?q=80&w=800",
+    ],
+    description: "Daily wear printed collection.",
+  },
+  {
+    id: "s1",
+    name: "Luxury Silk Couture",
+    category: "Pret",
+    season: "Winter-25",
+    price: 12000,
+    discount: 0,
+    isSale: false,
+    images: [
+      "https://images.unsplash.com/photo-1594932224456-7496bc43389a?q=80&w=800",
+    ],
+    description: "Exclusive winter clearance.",
+  },
   {
     id: "p1",
     name: "SOORAJ MUKHI U",
@@ -10,7 +102,7 @@ const productsData = [
     isSoldOut: false,
     price: 450.0,
     color: "Yellow",
-    discount: 15, // 15% off
+    discount: 0,
     images: [
       "https://www.chinyere.pk/cdn/shop/files/CS0513_06f26977-c47f-45ca-86f7-7bfeb13848ed_1066x.jpg?v=1773656534", // Front
       "https://www.chinyere.pk/cdn/shop/files/CS0513_4_a723f02b-66dc-4952-b7a1-42015e68b593_large.jpg?v=1773656534", // Back
@@ -50,7 +142,7 @@ const productsData = [
     bestSelling: false,
     price: 45.0,
     isSoldOut: false,
-    discount: 10,
+    discount: 0,
     images: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800&auto=format&fit=crop",

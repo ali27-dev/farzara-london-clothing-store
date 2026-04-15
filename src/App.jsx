@@ -7,36 +7,39 @@ import ProductDetails from "./features/Products/ProductDetails";
 import ProductPage from "./pages/ProductPage";
 import Wishlist from "./pages/Wishlist";
 import CartPage from "./pages/CartPage";
-// import Checkin from "./pages/Checkin";
-import ContactUs from "./pages/ContactUs";
+import Unstitched from "./pages/Unstitched";
+import ContactUsPage from "./pages/ContactUsPage";
 import PageNotFound from "./pages/PageNotFound";
-import Categories from "./pages/Categories";
+import Sales from "./pages/Sales";
 import Account from "./pages/Account";
 // import ScrollToTop from "./ui/ScrollToTop";
 import Checkout from "./pages/Checkout";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route index element={<Navigate replace to="home" />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="products" element={<ProductPage />} />
-            <Route path="products/:id" element={<ProductDetails />} />
-            <Route path="wishlist" element={<Wishlist />} />
-            <Route path="cart" element={<CartPage />} />
-            {/* <Route path="checkin/:orderId" element={<Checkin />} /> */}
-            <Route path="categories" element={<Categories />} />
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="home" />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="products" element={<ProductPage />} />
+              <Route path="products/:id" element={<ProductDetails />} />
+              <Route path="wishlist" element={<Wishlist />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path="sales" element={<Sales />} />
+              <Route path="unstitched" element={<Unstitched />} />
+              <Route path="contactus" element={<ContactUsPage />} />
+              <Route path="account" element={<Account />} />
+            </Route>
             <Route path="checkout" element={<Checkout />} />
-            <Route path="contactus" element={<ContactUs />} />
-            <Route path="account" element={<Account />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
     </>
   );
 }

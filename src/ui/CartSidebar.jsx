@@ -79,7 +79,13 @@ const CartSidebar = () => {
               <span>Subtotal</span>
               <span>£{cartTotal.toFixed(2)}</span>
             </S.Subtotal>
-            <S.ActionButton primary onClick={() => navigate("/checkout")}>
+            <S.ActionButton
+              primary
+              onClick={() => {
+                navigate("/checkout");
+                closeSidebar();
+              }}
+            >
               Checkout
             </S.ActionButton>
             <S.ActionButton

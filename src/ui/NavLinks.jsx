@@ -69,7 +69,10 @@ function NavLinks({ isOpen }) {
         <StyledNavLink to="/products">Products</StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/categories">Categories</StyledNavLink>
+        <StyledNavLink to="/unstitched">Unstitched</StyledNavLink>
+      </li>
+      <li>
+        <StyledNavLink to="/sales">Sales</StyledNavLink>
       </li>
       <li>
         <StyledNavLink to="/contactus">Contact us</StyledNavLink>
