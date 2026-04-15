@@ -68,14 +68,16 @@ export const BtnRow = styled.div`
   gap: 1.2rem;
   flex-wrap: wrap;
 `;
+
 export const CartBtn = styled.button`
   background: var(--color-brand-600);
   color: var(--color-grey-0);
   border: none;
   border-radius: 1.2rem;
   padding: 1.1rem 2.5rem;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-weight: 700;
+  margin-bottom: 5rem;
   cursor: pointer;
   transition: background 0.2s;
   &:hover {
@@ -86,24 +88,7 @@ export const CartBtn = styled.button`
     cursor: not-allowed;
   }
 `;
-export const WishlistBtn = styled.button`
-  background: var(--color-grey-0);
-  color: var(--color-brand-600);
-  border: 2px solid var(--color-brand-600);
-  border-radius: 1.2rem;
-  padding: 1.1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  transition: all 0.2s;
-  &:hover {
-    background: var(--color-brand-600);
-    color: var(--color-grey-0);
-  }
-`;
+
 export const SoldOutBadge = styled.span`
   display: inline-block;
   background: var(--color-grey-400);
@@ -122,8 +107,7 @@ export const StyledProductDetails = styled.div`
   max-width: 1200px;
   display: grid;
   grid-template-columns: auto 1fr;
-  /* grid-template-rows: auto; */
-  margin: 0 auto;
+
   gap: 1rem;
   @media (max-width: 900px) {
     flex-direction: column;

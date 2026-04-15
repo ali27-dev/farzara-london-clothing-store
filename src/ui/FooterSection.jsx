@@ -132,7 +132,7 @@ const Footer = () => {
           </S.ContactForm>
 
           <S.WhatsAppBtn
-            href="https://wa.me/442079460000?text=Hello%20FarZara%20London%2C%20I%20have%20a%20query%20about..."
+            href="https://wa.me/3422392680?text=Hello%20FarZara%20London%2C%20I%20have%20a%20query%20about..."
             target="_blank"
           >
             <FiMessageCircle size={20} /> Chat on WhatsApp

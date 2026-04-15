@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";
 import * as S from "./ProductCardStyles";
 import { useCart } from "../../context/CartContext";
@@ -11,7 +11,12 @@ const ProductCard = ({ product }) => {
 
   // High-performance hover state
   const [isHovered, setIsHovered] = useState(false);
-  const navigate = useNavigate();
+
+  const [isWishlisted, setIsWishlisted] = useState(() => {
+    const savedWishlist = localStorage.getItem("wishlist");
+    const wishlistArray = savedWishlist ? JSON.parse(savedWishlist) : [];
+    return wishlistArray.includes(product.id);
+  });
 
   // Math for FarZara pricing
   const hasDiscount = discount > 0;
@@ -20,15 +25,42 @@ const ProductCard = ({ product }) => {
   // Use second image if hovered, otherwise first. Fallback to a placeholder if needed.
   const currentImage = isHovered && images[1] ? images[1] : images[0];
 
+  const toggleWishlist = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const newState = !isWishlisted;
+    setIsWishlisted(newState);
+
+    const savedWishlist = localStorage.getItem("wishlist");
+    let wishlistArray = savedWishlist ? JSON.parse(savedWishlist) : [];
+
+    if (newState) {
+      if (!wishlistArray.includes(product.id)) {
+        wishlistArray.push(product.id);
+      }
+    } else {
+      wishlistArray = wishlistArray.filter((id) => id !== product.id);
+    }
+    localStorage.setItem("wishlist", JSON.stringify(wishlistArray));
+  };
+
   return (
     <S.Card>
       {hasDiscount && <S.Badge>Sale -{discount}%</S.Badge>}
 
       <S.WishlistBtn
         title="Add to Wishlist"
-        onClick={() => navigate("/wishlist")}
+        onClick={() => {
+          setIsWishlisted(!isWishlisted);
+        }}
+        onClick={toggleWishlist}
       >
-        <Heart size={18} />
+        <Heart
+          size={18}
+          color={isWishlisted ? "red" : "currentColor"}
+          fill={isWishlisted ? "red" : "none"}
+        />
       </S.WishlistBtn>
 
       <Link to={`/products/${product.id}`} style={{ display: "block" }}>

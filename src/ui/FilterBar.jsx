@@ -11,7 +11,7 @@ const FILTERS = [
 ];
 const FilterBarWrapper = styled.div`
   position: relative;
-  margin-bottom: 2.5rem;
+  margin: 5rem 0;
 `;
 const SortToggleBtn = styled.button`
   display: none;
@@ -24,7 +24,7 @@ const SortToggleBtn = styled.button`
     border: none;
     border-radius: 1.2rem;
     padding: 0.7rem 1.7rem;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 700;
     cursor: pointer;
     margin: 0 auto 1rem auto;
@@ -62,7 +62,7 @@ const FilterBtn = styled.button`
   border: 2px solid var(--color-brand-600);
   border-radius: 1.2rem;
   padding: 0.7rem 1.7rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;

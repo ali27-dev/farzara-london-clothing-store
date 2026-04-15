@@ -5,7 +5,6 @@ import AppLayout from "./ui/AppLayout";
 import Home from "./pages/Home";
 import ProductDetails from "./features/Products/ProductDetails";
 import ProductPage from "./pages/ProductPage";
-import Wishlist from "./pages/Wishlist";
 import CartPage from "./pages/CartPage";
 import Unstitched from "./pages/Unstitched";
 import ContactUsPage from "./pages/ContactUsPage";
@@ -28,7 +27,6 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="products" element={<ProductPage />} />
               <Route path="products/:id" element={<ProductDetails />} />
-              <Route path="wishlist" element={<Wishlist />} />
               <Route path="cart" element={<CartPage />} />
               <Route path="sales" element={<Sales />} />
               <Route path="unstitched" element={<Unstitched />} />
