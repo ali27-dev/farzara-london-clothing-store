@@ -13,7 +13,7 @@ const CheckoutPage = () => {
   const handlePayment = (e) => {
     e.preventDefault();
     // Here you would normally validate the form
-    alert("Processing your FarZara London Order...");
+    // alert("Processing your FarZara London Order...");
     navigate("/order-success"); // We will build this next!
   };
   return (
@@ -157,7 +157,7 @@ const CheckoutPage = () => {
           </S.PaymentBox>
         </S.FormBlock>
 
-        <S.PayButton onClick={handlePayment}>Pay now</S.PayButton>
+        <S.PayButton onClick={handlePayment}>Place Order</S.PayButton>
       </S.FormSection>
 
       {/* RIGHT: ORDER SUMMARY SECTION */}

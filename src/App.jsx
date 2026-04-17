@@ -12,6 +12,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Sales from "./pages/Sales";
 import Account from "./pages/Account";
 // import ScrollToTop from "./ui/ScrollToTop";
+import OrderConfirmation from "./features/check-in-out/OrderConfirmation";
 import Checkout from "./pages/Checkout";
 import { CartProvider } from "./context/CartContext";
 
@@ -34,6 +35,8 @@ function App() {
               <Route path="account" element={<Account />} />
             </Route>
             <Route path="checkout" element={<Checkout />} />
+            // In App.jsx
+            <Route path="order-success" element={<OrderConfirmation />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
