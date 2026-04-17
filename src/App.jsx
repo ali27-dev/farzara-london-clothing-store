@@ -15,6 +15,8 @@ import Account from "./pages/Account";
 import OrderConfirmation from "./features/check-in-out/OrderConfirmation";
 import Checkout from "./pages/Checkout";
 import { CartProvider } from "./context/CartContext";
+import TrackOrderDetails from "./features/check-in-out/TrackingOrderDetails";
+import TrackOrder from "./features/check-in-out/TrackOrder";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
             <Route path="checkout" element={<Checkout />} />
             // In App.jsx
             <Route path="order-success" element={<OrderConfirmation />} />
+            <Route path="track-order" element={<TrackOrder />} />
+            <Route path="track-order/:id" element={<TrackOrderDetails />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>

@@ -77,6 +77,9 @@ function NavLinks({ isOpen }) {
       <li>
         <StyledNavLink to="/contactus">Contact us</StyledNavLink>
       </li>
+      <li>
+        <StyledNavLink to="/track-order">Track Order</StyledNavLink>
+      </li>
     </NavLinksUL>
   );
 }
