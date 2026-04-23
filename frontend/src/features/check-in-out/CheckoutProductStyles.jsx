@@ -16,7 +16,7 @@ export const CheckoutContainer = styled.div`
 `;
 
 // Left Side (Form) needs horizontal padding that adjusts
-export const FormSection = styled.section`
+export const FormSection = styled.form`
   padding: 4rem 8% 6rem 15%; /* Extra left padding for ultra-wide desktop */
 
   @media (max-width: 1200px) {

@@ -18,7 +18,7 @@ const CheckoutPage = () => {
   };
   return (
     <S.CheckoutContainer>
-      <S.FormSection>
+      <S.FormSection handleSubmit={handlePayment}>
         {/* CONTACT SECTION */}
         <S.FormBlock>
           <div
@@ -35,7 +35,7 @@ const CheckoutPage = () => {
           </div>
           <S.InputWrapper>
             <S.FloatingLabel>Email</S.FloatingLabel>
-            <S.StyledInput type="email" />
+            <S.StyledInput type="email" placeholder="Enter your email" />
           </S.InputWrapper>
           <label style={{ fontSize: "1.3rem", display: "flex", gap: "8px" }}>
             <input type="checkbox" /> Email me with news and offers
@@ -57,37 +57,37 @@ const CheckoutPage = () => {
           <S.InputGroup>
             <S.InputWrapper>
               <S.FloatingLabel>First name</S.FloatingLabel>
-              <S.StyledInput />
+              <S.StyledInput placeholder="John" required />
             </S.InputWrapper>
             <S.InputWrapper>
               <S.FloatingLabel>Last name</S.FloatingLabel>
-              <S.StyledInput />
+              <S.StyledInput placeholder="Doe" required />
             </S.InputWrapper>
           </S.InputGroup>
 
           <S.InputWrapper>
             <S.FloatingLabel>Address</S.FloatingLabel>
-            <S.StyledInput />
+            <S.StyledInput placeholder="123 Main St" required />
           </S.InputWrapper>
           <S.InputWrapper>
             <S.FloatingLabel>Apartment, suite, etc. (optional)</S.FloatingLabel>
-            <S.StyledInput />
+            <S.StyledInput required />
           </S.InputWrapper>
 
           <S.InputGroup>
             <S.InputWrapper>
               <S.FloatingLabel>City</S.FloatingLabel>
-              <S.StyledInput />
+              <S.StyledInput placeholder="London" required />
             </S.InputWrapper>
             <S.InputWrapper>
               <S.FloatingLabel>Postal code (optional)</S.FloatingLabel>
-              <S.StyledInput />
+              <S.StyledInput placeholder="12345" required />
             </S.InputWrapper>
           </S.InputGroup>
 
           <S.InputWrapper>
             <S.FloatingLabel>Phone</S.FloatingLabel>
-            <S.StyledInput />
+            <S.StyledInput placeholder="+1 234 567 890" required />
           </S.InputWrapper>
         </S.FormBlock>
 
@@ -133,14 +133,17 @@ const CheckoutPage = () => {
                 }}
               >
                 <S.InputWrapper>
-                  <S.StyledInput placeholder="Card number" />
+                  <S.StyledInput placeholder="Card number" required />
                 </S.InputWrapper>
                 <S.InputGroup>
-                  <S.StyledInput placeholder="Expiration date (MM / YY)" />
-                  <S.StyledInput placeholder="Security code" />
+                  <S.StyledInput
+                    placeholder="Expiration date (MM / YY)"
+                    required
+                  />
+                  <S.StyledInput placeholder="Security code" required />
                 </S.InputGroup>
                 <S.InputWrapper style={{ marginTop: "1.2rem" }}>
-                  <S.StyledInput placeholder="Name on card" />
+                  <S.StyledInput placeholder="Name on card" required />
                 </S.InputWrapper>
               </div>
             )}
@@ -157,7 +160,9 @@ const CheckoutPage = () => {
           </S.PaymentBox>
         </S.FormBlock>
 
-        <S.PayButton onClick={handlePayment}>Place Order</S.PayButton>
+        <S.PayButton type="submit" onClick={handlePayment}>
+          Place Order
+        </S.PayButton>
       </S.FormSection>
 
       {/* RIGHT: ORDER SUMMARY SECTION */}
