@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 
+import { ProductsModel } from "./Models/ProductsModel";
+
 dotenv.config();
 
 const app = express();
@@ -16,6 +18,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/products", async (req, res) => {
+  let allProducts = await ProductsModel.find({});
+  res.json(allProducts);
+});
 connectDB();
 
 app.listen(process.env.PORT || 5001, () => {
