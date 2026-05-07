@@ -1,15 +1,17 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
+import colors from "colors";
+import connectDB from "./config/db.js";
 
-// const { ProductsModel } = require("./Models/ProductsModel"); --- IGNORE ---
-const { ProductsModel } = require("./Models/ProductsModel");
+import ProductsModel from "./Models/ProductsModel.js";
 
 dotenv.config();
-
+connectDB();
 const app = express();
+
+const PORT = process.env.PORT || 5001;
 
 app.use(
   cors({
@@ -27,7 +29,7 @@ app.get("/", (req, res) => {
 
 app.post("/products", async (req, res) => {
   try {
-    const newProduct = new ProductsModel(req.body);
+    const newProduct = new ProductsModel();
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (error) {
@@ -36,12 +38,14 @@ app.post("/products", async (req, res) => {
 });
 
 app.get("/products", async (req, res) => {
-  let allProducts = await ProductsModel.find({});
-  res.json(allProducts);
+  try {
+    const products = await ProductsModel.find();
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
-connectDB();
-
-app.listen(process.env.PORT || 5001, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${process.env.PORT || 5001}`);
 });

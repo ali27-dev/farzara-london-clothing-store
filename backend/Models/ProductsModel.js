@@ -1,7 +1,6 @@
-const { model } = require("mongoose");
-const mongoose = require("mongoose");
-const { productsSchema } = require("../Schemas/ProductsSchema");
+import mongoose from "mongoose";
+import ProductsSchema from "../Schemas/ProductsSchema.js";
 
-const ProductsModel = new mongoose.model("Products", productsSchema);
+const ProductsModel = new mongoose.model("Products", ProductsSchema);
 
-module.exports = { ProductsModel };
+export default { ProductsModel };
