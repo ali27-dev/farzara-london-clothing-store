@@ -6,6 +6,7 @@ import colors from "colors";
 import connectDB from "./config/db.js";
 
 import ProductRoutes from "./Routes/ProductRoutes.js";
+import UserRoutes from "./Routes/UserRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // ROUTES //
 app.use("/api/products", ProductRoutes);
+app.use("/api/users", UserRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -48,6 +50,10 @@ app.get("/", (req, res) => {
 //     res.status(400).json({ message: error.message });
 //   }
 // });
+app.use((req, res, next) => {
+  console.log(`${req.method} request to ${req.url}`);
+  next();
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${process.env.PORT || 5001}`);

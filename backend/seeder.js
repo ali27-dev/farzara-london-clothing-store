@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import colors from "colors";
-import User from "./Models/UserModel.js";
+import UserModel from "./Models/UserModel.js";
 import ProductsModel from "./Models/ProductsModel.js";
 import connectDB from "./config/db.js";
 
@@ -11,11 +11,11 @@ connectDB();
 const importData = async () => {
   try {
     // 1. Clear existing data to start fresh
-    await User.deleteMany();
+    await UserModel.deleteMany();
     await ProductsModel.deleteMany();
 
     // 2. Create a Test User
-    const adminUser = await User.create({
+    const adminUser = await UserModel.create({
       name: "Admin User",
       email: "admin@farzara.com",
       password: "password123", // Bcrypt will hash this automatically!
@@ -33,6 +33,9 @@ const importData = async () => {
       countInStock: 10,
     });
 
+    console.log("User object before save:", adminUser); // <--- CHECK THIS LOG
+    await adminUser.save();
+
     console.log("✅ Data Imported Successfully!".green.inverse);
     process.exit();
   } catch (error) {
@@ -43,7 +46,7 @@ const importData = async () => {
 
 const destroyData = async () => {
   try {
-    await User.deleteMany();
+    await UserModel.deleteMany();
     await ProductsModel.deleteMany();
     console.log("🗑️ Data Destroyed!".red.inverse);
     process.exit();
