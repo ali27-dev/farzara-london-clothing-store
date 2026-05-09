@@ -1,13 +1,13 @@
 import asyncHandler from "express-async-handler";
-import ProductsModel from "../Models/ProductsModel.js";
+import productModel from "../Models/productModel.js";
 
 export const getProducts = asyncHandler(async (req, res) => {
-  const products = await ProductsModel.find({});
+  const products = await productModel.find({});
   res.json(products);
 });
 
 export const getProductById = asyncHandler(async (req, res) => {
-  const product = await ProductsModel.findById(req.params.id);
+  const product = await productModel.findById(req.params.id);
   if (product) {
     res.json(product);
   } else {
