@@ -18,6 +18,7 @@ export const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
+      token: generateToken(user._id),
     });
   } else {
     // 3. If it doesn't match, send a 401, not a 500

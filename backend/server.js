@@ -5,8 +5,9 @@ import dotenv from "dotenv";
 import colors from "colors";
 import connectDB from "./config/db.js";
 
-import ProductRoutes from "./Routes/ProductRoutes.js";
-import UserRoutes from "./Routes/UserRoutes.js";
+import productRoutes from "./Routes/productRoutes.js";
+import userRoutes from "./Routes/userRoutes.js";
+import orderRoutes from "./Routes/orderRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -25,8 +26,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // ROUTES //
-app.use("/api/products", ProductRoutes);
-app.use("/api/users", UserRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
