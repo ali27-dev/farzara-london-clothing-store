@@ -1,14 +1,12 @@
 import express from "express";
-import {
-  getProducts,
-  getProductById,
-} from "../Controllers/ProductController.js";
-import { addOrderItems } from "../Controllers/orderController.js";
-import { protect } from "../Middlewares/userMiddleware.js";
+import { addOrderItems, getAllOrders } from "../Controllers/orderController.js";
+import { protect, admin } from "../Middlewares/userMiddleware.js";
 
 const router = express.Router();
 
-router.route("/").post(protect, addOrderItems);
-// router.route("/:id").get(protect, getOrderById);
+router
+  .route("/")
+  .post(protect, addOrderItems) // Any logged-in user can buy
+  .get(protect, admin, getAllOrders); // ONLY an Admin can see the list
 
 export default router;

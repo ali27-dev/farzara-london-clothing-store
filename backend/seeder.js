@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import colors from "colors";
-import UserModel from "./Models/UserModel.js";
+import UserModel from "./Models/userModel.js";
 import ProductsModel from "./Models/ProductsModel.js";
 import connectDB from "./config/db.js";
 

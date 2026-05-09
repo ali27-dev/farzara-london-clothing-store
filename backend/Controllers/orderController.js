@@ -35,3 +35,12 @@ export const addOrderItems = asynchandler(async (req, res) => {
     res.status(201).json(createdOrder);
   }
 });
+
+// @desc    Get all orders (Admin only)
+// @route   GET /api/orders
+// @access  Private/Admin
+export const getAllOrders = asynchandler(async (req, res) => {
+  // We use .populate to turn the user ID into a full user object (name and id)
+  const orders = await orderModel.find({}).populate("user", "id name");
+  res.json(orders);
+});
