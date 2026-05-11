@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { useState, useEffect, useRef, useMemo } from "react";
-import { products } from "../../data/ProductsData";
+// import { products } from "../../data/ProductsData";
 
 import * as S from "./ProductCardStyles";
 
 import ProductCard from "./ProductCard";
 import Heading from "../../ui/Heading";
 import FilterBar from "../../ui/FilterBar";
+import { useProducts } from "../../context/productsContext";
 // ...existing imports...
 
 const StyleProductContainer = styled.div`
@@ -59,6 +60,7 @@ const SeeMoreBtn = styled.button`
 `;
 
 function Products() {
+  const { products, loading, error } = useProducts();
   const [visibleCount, setVisibleCount] = useState(20);
   const [activeFilter, setActiveFilter] = useState("all");
   const [sortOpen, setSortOpen] = useState(false);
@@ -105,7 +107,7 @@ function Products() {
         break;
     }
     return filtered;
-  }, [activeFilter]);
+  }, [activeFilter, products]);
 
   const showMore = () => setVisibleCount((prev) => prev + 20);
 
@@ -130,9 +132,10 @@ function Products() {
         filterBarRef={filterBarRef}
         setVisibleCount={setVisibleCount}
       />
+
       <S.ProductsGrid>
-        {filteredProducts.slice(0, visibleCount).map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {filteredProducts.slice(0, visibleCount).map((products) => (
+          <ProductCard key={products.id} product={products} />
         ))}
       </S.ProductsGrid>
       {filteredProducts.length > visibleCount && (

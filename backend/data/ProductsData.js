@@ -51,33 +51,7 @@ const productsData = [
   },
   //
   // countInStock: 10, ... existing products ...
-  {
-    name: "3 Piece Embroidered Lawn Unstitched",
-    category: "Unstitched",
-    season: "Summer-26",
-    price: 8500,
-    discount: 15,
-    isSale: true,
-    images: [
-      "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=800",
-      "https://i.imgur.com/fallback.png",
-    ],
-    description: "Premium lawn with chiffon dupatta.",
-    countInStock: 10,
-  },
-  {
-    name: "2 Piece Printed Unstitched Suit",
-    category: "Unstitched",
-    season: "Summer-26",
-    price: 4500,
-    discount: 0,
-    isSale: false,
-    images: [
-      "https://images.unsplash.com/photo-1606132205545-2c8c49f87424?q=80&w=800",
-    ],
-    description: "Daily wear printed collection.",
-    countInStock: 10,
-  },
+
   {
     name: "Luxury Silk Couture",
     category: "Pret",

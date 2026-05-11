@@ -1,6 +1,9 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import GlobalStyles from "./styles/GlobalStyles";
 
+import { CartProvider } from "./context/CartContext";
+import { ProductsProvider } from "./context/productsContext";
+
 import AppLayout from "./ui/AppLayout";
 import Home from "./pages/Home";
 import ProductDetails from "./features/Products/ProductDetails";
@@ -14,41 +17,42 @@ import Account from "./pages/Account";
 // import ScrollToTop from "./ui/ScrollToTop";
 import OrderConfirmation from "./features/check-in-out/OrderConfirmation";
 import Checkout from "./pages/Checkout";
-import { CartProvider } from "./context/CartContext";
 import TrackOrderDetails from "./features/check-in-out/TrackingOrderDetails";
 import TrackOrder from "./features/check-in-out/TrackOrder";
-import TestReq from "./ui/TestReq";
+// import TestReq from "./ui/TestReq";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <CartProvider>
-        <BrowserRouter>
-          <Routes>
+      <ProductsProvider>
+        <CartProvider>
+          <BrowserRouter>
+            {/* <Routes>
             <Route path="/" element={<TestReq />} />
-          </Routes>
-          {/* <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<Navigate replace to="home" />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="products" element={<ProductPage />} />
-              <Route path="products/:id" element={<ProductDetails />} />
-              <Route path="cart" element={<CartPage />} />
-              <Route path="sales" element={<Sales />} />
-              <Route path="unstitched" element={<Unstitched />} />
-              <Route path="contactus" element={<ContactUsPage />} />
-              <Route path="account" element={<Account />} />
-            </Route>
-            <Route path="checkout" element={<Checkout />} />
-            // In App.jsx
-            <Route path="order-success" element={<OrderConfirmation />} />
-            <Route path="track-order" element={<TrackOrder />} />
-            <Route path="track-order/:id" element={<TrackOrderDetails />} />
-            <Route path="*" element={<PageNotFound />} />
           </Routes> */}
-        </BrowserRouter>
-      </CartProvider>
+            <Routes>
+              <Route element={<AppLayout />}>
+                <Route index element={<Navigate replace to="home" />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="products" element={<ProductPage />} />
+                <Route path="products/:id" element={<ProductDetails />} />
+                <Route path="cart" element={<CartPage />} />
+                <Route path="sales" element={<Sales />} />
+                <Route path="unstitched" element={<Unstitched />} />
+                <Route path="contactus" element={<ContactUsPage />} />
+                <Route path="account" element={<Account />} />
+              </Route>
+              <Route path="checkout" element={<Checkout />} />
+              // In App.jsx
+              <Route path="order-success" element={<OrderConfirmation />} />
+              <Route path="track-order" element={<TrackOrder />} />
+              <Route path="track-order/:id" element={<TrackOrderDetails />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </CartProvider>
+      </ProductsProvider>
     </>
   );
 }
