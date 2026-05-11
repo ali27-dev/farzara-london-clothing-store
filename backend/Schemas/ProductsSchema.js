@@ -6,7 +6,6 @@ const ProductsSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please add a product name"],
       trim: true,
-      maxlength: [100, "Name cannot exceed 100 characters"],
     },
     category: {
       type: String,
@@ -22,25 +21,17 @@ const ProductsSchema = new mongoose.Schema(
         ],
         message: "{VALUE} is not a valid category",
       },
-      season: {
-        type: String,
-        required: [true, "Please specify the season"],
-        enum: ["Summer", "Winter", "All Season"],
-      },
+    },
+    season: {
+      type: String,
+      required: [true, "Please specify the season"],
+      enum: ["Summer", "Winter", "All Season"],
     },
     price: {
       type: Number,
       required: [true, "Please add a price"],
       min: [0, "Price must be a positive number"],
       default: 0,
-    },
-    discount: {
-      type: Number,
-      required: [true, "Please add a product discount"],
-    },
-    isSale: {
-      type: Boolean,
-      required: true,
     },
     images: {
       type: [String], // Array of strings (URLs)
@@ -72,4 +63,4 @@ const ProductsSchema = new mongoose.Schema(
   }
 );
 
-export default { ProductsSchema };
+export default ProductsSchema;

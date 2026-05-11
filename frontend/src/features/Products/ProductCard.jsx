@@ -21,7 +21,6 @@ const ProductCard = ({ product }) => {
   // Math for FarZara pricing
   const hasDiscount = discount > 0;
   const salePrice = hasDiscount ? price - (price * discount) / 100 : price;
-
   // Use second image if hovered, otherwise first. Fallback to a placeholder if needed.
   const currentImage = isHovered && images[1] ? images[1] : images[0];
 

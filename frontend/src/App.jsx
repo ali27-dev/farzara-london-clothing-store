@@ -17,6 +17,7 @@ import Checkout from "./pages/Checkout";
 import { CartProvider } from "./context/CartContext";
 import TrackOrderDetails from "./features/check-in-out/TrackingOrderDetails";
 import TrackOrder from "./features/check-in-out/TrackOrder";
+import TestReq from "./ui/TestReq";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
       <CartProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<TestReq />} />
+          </Routes>
+          {/* <Routes>
             <Route element={<AppLayout />}>
               <Route index element={<Navigate replace to="home" />} />
               <Route path="/home" element={<Home />} />
@@ -42,7 +46,7 @@ function App() {
             <Route path="track-order" element={<TrackOrder />} />
             <Route path="track-order/:id" element={<TrackOrderDetails />} />
             <Route path="*" element={<PageNotFound />} />
-          </Routes>
+          </Routes> */}
         </BrowserRouter>
       </CartProvider>
     </>

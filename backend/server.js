@@ -4,16 +4,14 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import colors from "colors";
 import connectDB from "./config/db.js";
-
 import productRoutes from "./Routes/productRoutes.js";
 import userRoutes from "./Routes/userRoutes.js";
 import orderRoutes from "./Routes/orderRoutes.js";
 
 dotenv.config();
-connectDB();
 const app = express();
-
 const PORT = process.env.PORT || 5001;
+connectDB();
 
 app.use(
   cors({
@@ -22,36 +20,18 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+app.use(express.json());
 
 // ROUTES //
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
-
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-// app.post("/products", async (req, res) => {
-//   try {
-//     const newProduct = new ProductsModel();
-//     await newProduct.save();
-//     res.status(201).json(newProduct);
-//   } catch (error) {
-//     res.status(400).json({ message: error.message });
-//   }
-// });
-
-// app.get("/products", async (req, res) => {
-//   try {
-//     const products = await ProductsModel.find();
-//     res.status(200).json(products);
-//   } catch (error) {
-//     res.status(400).json({ message: error.message });
-//   }
-// });
 app.use((req, res, next) => {
   console.log(`${req.method} request to ${req.url}`);
   next();
