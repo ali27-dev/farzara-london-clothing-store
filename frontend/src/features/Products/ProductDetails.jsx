@@ -9,16 +9,17 @@ import * as S from "./ProductDetailsStyles";
 import Row from "../../ui/Row";
 import ButtonText from "../../ui/ButtonText";
 import Heading from "../../ui/Heading";
+import Spinner from "../../ui/Spinner";
 
 function ProductDetails() {
   const { addToCart } = useCart();
   const { products, loading, error } = useProducts();
+  const [mainImg, setMainImg] = useState(products?.images?.[0] || "");
   const { id } = useParams();
+  const product = products.find((p) => String(p.id) === String(id));
   const navigate = useNavigate();
 
-  const product = products.find((p) => String(p.id) === String(id));
-
-  const [mainImg, setMainImg] = useState(product?.images?.[0] || "");
+  if (loading) return <Spinner />;
   if (!product) return <div>Product not found.</div>;
   return (
     <>

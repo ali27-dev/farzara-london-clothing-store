@@ -4,12 +4,13 @@ import styled from "styled-components";
 import ProductCard from "./ProductCard";
 import Heading from "../../ui/Heading";
 import { useProducts } from "../../context/productsContext";
+import Spinner from "../../ui/Spinner";
 
 const SalePage = () => {
-  const { products } = useProducts();
+  const { products, loading } = useProducts();
   // Filter only items with a discount
   const saleItems = products.filter((p) => p.discount > 0);
-
+  if (loading) return <Spinner />;
   return (
     <Container>
       <SaleBanner>

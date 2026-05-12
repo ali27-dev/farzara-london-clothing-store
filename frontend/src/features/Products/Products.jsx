@@ -8,6 +8,7 @@ import ProductCard from "./ProductCard";
 import Heading from "../../ui/Heading";
 import FilterBar from "../../ui/FilterBar";
 import { useProducts } from "../../context/productsContext";
+import Spinner from "../../ui/Spinner";
 // ...existing imports...
 
 const StyleProductContainer = styled.div`
@@ -110,6 +111,7 @@ function Products() {
   }, [activeFilter, products]);
 
   const showMore = () => setVisibleCount((prev) => prev + 20);
+  if (loading) return <Spinner />;
 
   return (
     <StyleProductContainer>

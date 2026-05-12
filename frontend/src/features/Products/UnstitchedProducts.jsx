@@ -3,12 +3,13 @@ import styled from "styled-components";
 
 import ProductCard from "./ProductCard";
 import { useProducts } from "../../context/productsContext";
+import Spinner from "../../ui/Spinner";
 
 const UnstitchedPage = () => {
   const { products, loading, error } = useProducts();
   // Filter only Unstitched
   const unstitchedItems = products.filter((p) => p.category === "Unstitched");
-
+  if (loading) return <Spinner />;
   return (
     <Container>
       <Grid>

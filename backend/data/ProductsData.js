@@ -1,5 +1,6 @@
 const productsData = [
   {
+    id: "prod-001",
     name: "3 Piece Luxury Lawn Unstitched Suit",
     category: "Unstitched",
     season: "Summer",
@@ -12,6 +13,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-002",
     name: "2 Piece Printed Cotton Karandi",
     category: "Unstitched",
     season: "Spring",
@@ -23,6 +25,7 @@ const productsData = [
     description: "Perfect for daily spring wear.",
   },
   {
+    id: "prod-003",
     name: "Embroidered Chiffon Evening Wear",
     category: "Pret",
     season: "Winter",
@@ -35,6 +38,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-004",
     name: "Classic Silk Tunic",
     category: "Pret",
     season: "All Season",
@@ -47,6 +51,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-005",
     name: "Luxury Silk Couture",
     category: "Pret",
     season: "Winter",
@@ -60,6 +65,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-006",
     name: "SOORAJ MUKHI U",
     fabric: "Printed Lawn",
     category: "2-piece",
@@ -80,6 +86,7 @@ const productsData = [
     isNew: true,
   },
   {
+    id: "prod-007",
     name: "Silk Evening Gown - Crimson",
     color: "Crimson Red",
     fabric: "100% Pure Silk",
@@ -99,6 +106,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-008",
     color: "Off-White",
     fabric: "Organic Cotton",
     name: "Oversized Cotton Tee T-Shirt",
@@ -119,6 +127,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-009",
     color: "Black & White",
     fabric: "Wool Blend",
     name: "Checkered Slim-Fit Trousers",
@@ -137,6 +146,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-010",
     name: "Leather Chelsea Boots 10",
     color: "Dark Brown",
     fabric: "Genuine Leather",
@@ -154,6 +164,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-011",
     name: "Leather Chelsea Boots 11",
     color: "Dark Brown",
     fabric: "Genuine Leather",
@@ -171,6 +182,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-012",
     name: "Leather Chelsea Boots 12",
     color: "Dark Brown",
     fabric: "Genuine Leather",
@@ -188,6 +200,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-013",
     name: "Leather Chelsea Boots 13",
     category: "Accessories",
     color: "Dark Brown",
@@ -205,6 +218,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-014",
     name: "Leather Chelsea Boots 14",
     color: "Dark Brown",
     fabric: "Genuine Leather",
@@ -222,6 +236,7 @@ const productsData = [
     countInStock: 10,
   },
   {
+    id: "prod-015",
     name: "Leather Chelsea Boots 15",
     color: "Dark Brown",
     fabric: "Genuine Leather",
