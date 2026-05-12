@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { products } from "../../data/ProductsData";
+// import { products } from "../../data/ProductsData";
 import ProductCard from "./ProductCard";
 import Heading from "../../ui/Heading";
+import { useProducts } from "../../context/productsContext";
 
 const SalePage = () => {
+  const { products } = useProducts();
   // Filter only items with a discount
   const saleItems = products.filter((p) => p.discount > 0);
 
@@ -18,8 +20,8 @@ const SalePage = () => {
       </SaleBanner>
 
       <Grid>
-        {saleItems.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {saleItems.map((products) => (
+          <ProductCard key={products.id} product={products} />
         ))}
       </Grid>
     </Container>

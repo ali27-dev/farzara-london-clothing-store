@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-// import { useProducts } from "../../context/productsContext";
-import { products } from "../../data/ProductsData";
+import { useProducts } from "../../context/productsContext";
+// import { products } from "../../data/ProductsData";
 import { FaHeart } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
 import * as S from "./ProductDetailsStyles";
@@ -12,7 +12,7 @@ import Heading from "../../ui/Heading";
 
 function ProductDetails() {
   const { addToCart } = useCart();
-  // const { products, loading, error } = useProducts();
+  const { products, loading, error } = useProducts();
   const { id } = useParams();
   const navigate = useNavigate();
 

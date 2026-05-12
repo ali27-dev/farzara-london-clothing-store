@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
-const ProductsSchema = new mongoose.Schema(
+const productsSchema = new mongoose.Schema(
   {
+    id: {
+      type: String,
+      unique: true,
+    },
     name: {
       type: String,
       required: [true, "Please add a product name"],
@@ -12,12 +16,18 @@ const ProductsSchema = new mongoose.Schema(
       required: [true, "Please select a category"],
       enum: {
         values: [
+          "Shirts",
+          "Dresses",
           "Suits",
           "Pants",
           "T-Shirts",
           "Unstitched",
           "Pret",
           "Accessories",
+          "1-piece",
+          "2-piece",
+          "3-piece",
+          "4-piece",
         ],
         message: "{VALUE} is not a valid category",
       },
@@ -25,13 +35,17 @@ const ProductsSchema = new mongoose.Schema(
     season: {
       type: String,
       required: [true, "Please specify the season"],
-      enum: ["Summer", "Winter", "All Season"],
+      enum: ["Summer", "Winter", "Spring", "All Season"],
     },
     price: {
       type: Number,
       required: [true, "Please add a price"],
       min: [0, "Price must be a positive number"],
       default: 0,
+    },
+    color: {
+      type: String,
+      required: [false, "Please specify a color"],
     },
     images: {
       type: [String], // Array of strings (URLs)
@@ -63,4 +77,4 @@ const ProductsSchema = new mongoose.Schema(
   }
 );
 
-export default ProductsSchema;
+export default productsSchema;

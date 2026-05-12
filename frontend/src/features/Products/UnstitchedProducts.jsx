@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { products } from "../../data/ProductsData";
+
 import ProductCard from "./ProductCard";
+import { useProducts } from "../../context/productsContext";
 
 const UnstitchedPage = () => {
+  const { products, loading, error } = useProducts();
   // Filter only Unstitched
   const unstitchedItems = products.filter((p) => p.category === "Unstitched");
 

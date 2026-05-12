@@ -51,9 +51,9 @@ const ProductCard = ({ product }) => {
       <S.WishlistBtn
         title="Add to Wishlist"
         onClick={() => {
+          toggleWishlist();
           setIsWishlisted(!isWishlisted);
         }}
-        onClick={toggleWishlist}
       >
         <Heart
           size={18}

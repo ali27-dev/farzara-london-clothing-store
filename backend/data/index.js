@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { products } from "./ProductsData.js";
+import { productsData } from "./ProductsData.js";
 import productsModel from "../Models/productModel.js";
 
-// const MONGO_URL = process.env.MONGO_URI;
 dotenv.config();
 
 main()
   .then(() => {
     console.log("connected to DB");
+    return initDB();
   })
   .catch((err) => {
     console.log(err);
@@ -20,13 +20,22 @@ async function main() {
 
 const initDB = async function () {
   await productsModel.deleteMany({});
-  // products.productsData = products.productsData.map((obj) => ({
-  //   ...obj,
-  //   owner: "68cfa8bcd469333d2579154c",
-  // }));
-
-  await productsModel.insertMany(products.productsData);
-  console.log("data was added");
+  try {
+    await productsModel.insertMany(productsData, { ordered: false });
+    console.log("data was added");
+  } catch (err) {
+    console.error(
+      "Some products failed to insert:",
+      err.writeErrors?.length || err
+    );
+    if (err.writeErrors) {
+      err.writeErrors.forEach((e, i) => {
+        console.error(
+          `Error #${i + 1}:`,
+          e.errmsg || e.err.message || JSON.stringify(e),
+          e.err && e.err.op ? e.err.op : undefined
+        );
+      });
+    }
+  }
 };
-
-initDB();
