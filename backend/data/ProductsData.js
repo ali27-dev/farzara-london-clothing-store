@@ -1,7 +1,5 @@
-export const productsData = [
-  // UNSTITCHED COLLECTION
+const productsData = [
   {
-    id: "prod-001",
     name: "3 Piece Luxury Lawn Unstitched Suit",
     category: "Unstitched",
     season: "Summer",
@@ -14,7 +12,6 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-002",
     name: "2 Piece Printed Cotton Karandi",
     category: "Unstitched",
     season: "Spring",
@@ -25,15 +22,12 @@ export const productsData = [
     ],
     description: "Perfect for daily spring wear.",
   },
-
-  // SALE COLLECTION
   {
-    id: "prod-003",
     name: "Embroidered Chiffon Evening Wear",
     category: "Pret",
     season: "Winter",
     price: 15000,
-    discount: 0, // 50% OFF
+    discount: 0,
     images: [
       "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800",
     ],
@@ -41,23 +35,18 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-004",
     name: "Classic Silk Tunic",
     category: "Pret",
     season: "All Season",
     price: 6000,
-    discount: 25, // 25% OFF
+    discount: 25,
     images: [
       "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800",
     ],
     description: "Limited time discount.",
     countInStock: 10,
   },
-  //
-  // countInStock: 10, ... existing products ...
-
   {
-    id: "prod-005",
     name: "Luxury Silk Couture",
     category: "Pret",
     season: "Winter",
@@ -71,7 +60,6 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-006",
     name: "SOORAJ MUKHI U",
     fabric: "Printed Lawn",
     category: "2-piece",
@@ -83,18 +71,15 @@ export const productsData = [
     color: "Yellow",
     discount: 0,
     images: [
-      "https://www.chinyere.pk/cdn/shop/files/CS0513_06f26977-c47f-45ca-86f7-7bfeb13848ed_1066x.jpg?v=1773656534", // Front
-      "https://www.chinyere.pk/cdn/shop/files/CS0513_4_a723f02b-66dc-4952-b7a1-42015e68b593_large.jpg?v=1773656534", // Back
+      "https://www.chinyere.pk/cdn/shop/files/CS0513_06f26977-c47f-45ca-86f7-7bfeb13848ed_1066x.jpg?v=1773656534",
+      "https://www.chinyere.pk/cdn/shop/files/CS0513_4_a723f02b-66dc-4952-b7a1-42015e68b593_large.jpg?v=1773656534",
     ],
     description:
       "3 Piece Suit The pack suit includes printed piece for shirt and trouser embroidered lawn dupatta and organza patch for dupatta.",
     countInStock: 10,
-    countInStock: 10,
     isNew: true,
   },
-
   {
-    id: "prod-007",
     name: "Silk Evening Gown - Crimson",
     color: "Crimson Red",
     fabric: "100% Pure Silk",
@@ -105,8 +90,8 @@ export const productsData = [
     bestSelling: true,
     isSoldOut: true,
     images: [
-      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop", // Front
-      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop", // Back
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop",
     ],
     description:
       "An elegant floor-length gown crafted from 100% pure silk. Perfect for gala events.",
@@ -114,7 +99,6 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-008",
     color: "Off-White",
     fabric: "Organic Cotton",
     name: "Oversized Cotton Tee T-Shirt",
@@ -135,7 +119,6 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-009",
     color: "Black & White",
     fabric: "Wool Blend",
     name: "Checkered Slim-Fit Trousers",
@@ -154,168 +137,10 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-010",
-    name: "Leather Chelsea Boots1",
-    color: "Dark Brown",
-    fabric: "Genuine Leather",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-011",
-    name: "Leather Chelsea Boots 2",
-    color: "Dark Brown",
-    fabric: "Genuine Leather",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-012",
-    name: "Leather Chelsea Boots 3",
-    color: "Dark Brown",
-    fabric: "Genuine Leather",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-013",
-    name: "Leather Chelsea Boots 4",
-    category: "Accessories",
-    color: "Dark Brown",
-    fabric: "Genuine Leather",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-014",
-    name: "Leather Chelsea Boots 5",
-    color: "Dark Brown",
-    fabric: "Genuine Leather",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-015",
-    name: "Leather Chelsea Boots 6",
-    category: "Accessories",
-    color: "Dark Brown",
-    fabric: "Genuine Leather",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-016",
-    name: "Leather Chelsea Boots 7",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-017",
-    name: "Leather Chelsea Boots 8",
-    category: "Accessories",
-    color: "Dark Brown",
-    fabric: "Genuine Leather",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-018",
-    name: "Leather Chelsea Boots 9",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
     name: "Leather Chelsea Boots 10",
-    category: "Accessories",
     color: "Dark Brown",
     fabric: "Genuine Leather",
+    category: "Accessories",
     season: "Winter",
     price: 180.0,
     discount: 20,
@@ -329,8 +154,9 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-020",
     name: "Leather Chelsea Boots 11",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     category: "Accessories",
     season: "Winter",
     price: 180.0,
@@ -346,6 +172,8 @@ export const productsData = [
   },
   {
     name: "Leather Chelsea Boots 12",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     category: "Accessories",
     season: "Winter",
     price: 180.0,
@@ -360,9 +188,10 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-022",
     name: "Leather Chelsea Boots 13",
     category: "Accessories",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     season: "Winter",
     price: 180.0,
     discount: 20,
@@ -376,24 +205,9 @@ export const productsData = [
     countInStock: 10,
   },
   {
-    id: "prod-023",
-    name: "Leather Chelsea Boots",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-024",
     name: "Leather Chelsea Boots 14",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     category: "Accessories",
     season: "Winter",
     price: 180.0,
@@ -409,6 +223,8 @@ export const productsData = [
   },
   {
     name: "Leather Chelsea Boots 15",
+    color: "Dark Brown",
+    fabric: "Genuine Leather",
     category: "Accessories",
     season: "Winter",
     price: 180.0,
@@ -421,303 +237,7 @@ export const productsData = [
       "Handcrafted genuine leather boots with durable elastic side panels.",
     isNew: false,
     countInStock: 10,
-  },
-  {
-    id: "prod-026",
-    name: "Leather Chelsea Boots 16",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-027",
-    name: "Leather Chelsea Boots 17",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-028",
-    name: "Leather Chelsea Boots 18",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-029",
-    name: "Leather Chelsea Boots 19",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-030",
-    name: "Leather Chelsea Boots 20",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-031",
-    name: "Leather Chelsea Boots 21",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-032",
-    name: "Leather Chelsea Boots 22",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-033",
-    name: "Leather Chelsea Boots 23",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-034",
-    name: "Leather Chelsea Boots 24",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-035",
-    name: "Leather Chelsea Boots 25",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-036",
-    name: "Leather Chelsea Boots 26",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-037",
-    name: "Leather Chelsea Boots 27",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-038",
-    name: "Leather Chelsea Boots 28",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-039",
-    name: "Leather Chelsea Boots 29",
-    category: "Accessories",
-    season: "Winter",
-    price: 180.0,
-    discount: 20,
-    images: [
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605733160413-677ed301ceaf?q=80&w=800&auto=format&fit=crop",
-    ],
-    description:
-      "Handcrafted genuine leather boots with durable elastic side panels.",
-    isNew: false,
-    countInStock: 10,
-  },
-  {
-    id: "prod-040",
-    name: "Classic Black Suit 1",
-    category: "Suits",
-    season: "Winter",
-    price: 12000,
-    discount: 15,
-    images: ["https://example.com/suit1.jpg"],
-    description: "Premium black suit perfect for formal occasions.",
-    countInStock: 10,
-    isFeatured: true,
-  },
-  {
-    id: "prod-041",
-    name: "Summer Cotton T-Shirt 1",
-    category: "T-Shirts",
-    season: "Summer",
-    price: 1500,
-    discount: 10,
-    images: ["https://example.com/tshirt1.jpg"],
-    description: "Lightweight cotton t-shirt for hot weather.",
-    countInStock: 25,
-    isFeatured: false,
-  },
-  {
-    id: "prod-042",
-    name: "Men's Formal Pants 1",
-    category: "Pants",
-    season: "All Season",
-    price: 3500,
-    discount: 5,
-    images: ["https://example.com/pants1.jpg"],
-    description: "Slim fit formal pants for office wear.",
-    countInStock: 18,
-    isFeatured: false,
-  },
-  {
-    id: "prod-043",
-    name: "Unstitched Lawn Suit 1",
-    category: "Unstitched",
-    season: "Summer",
-    price: 4500,
-    discount: 20,
-    images: ["https://example.com/lawn1.jpg"],
-    description: "High-quality unstitched lawn fabric.",
-    countInStock: 30,
-    isFeatured: true,
-  },
-  {
-    id: "prod-044",
-    name: "Designer Pret Dress 1",
-    category: "Pret",
-    season: "Winter",
-    price: 8000,
-    discount: 12,
-    images: ["https://example.com/pret1.jpg"],
-    description: "Elegant ready-to-wear designer outfit.",
-    countInStock: 12,
-    isFeatured: true,
-  },
-  {
-    id: "prod-045",
-    name: "Leather Belt 1",
-    category: "Accessories",
-    season: "All Season",
-    price: 1200,
-    discount: 8,
-    images: ["https://example.com/belt1.jpg"],
-    description: "Durable leather belt with premium finish.",
-    countInStock: 40,
-    isFeatured: false,
   },
 ];
 
-// export { productsData as products };
+export default { data: productsData };
