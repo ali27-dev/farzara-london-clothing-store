@@ -1,0 +1,199 @@
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import Heading from "../ui/Heading";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+
+const AuthPage = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const { authenticate, userInfo, loading, error, clearError } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // const redirect = location.search ? location.search.split("=")[1] : "/";
+
+  // useEffect(() => {
+  //   if (userInfo) navigate(redirect);
+  // }, [navigate, userInfo, redirect]);
+  const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(from, { replace: true });
+    }
+  }, [userInfo, navigate, from]);
+
+  const toggleMode = () => {
+    setIsLogin(!isLogin);
+    clearError(); // Remove error messages when switching forms
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // if (!isLogin && formData.password !== formData.confirmPassword) {
+    //   return alert("Passwords don't match");
+    // }
+    // Call the global authenticate function
+    authenticate(isLogin ? "login" : "signup", formData);
+  };
+
+  return (
+    <AuthContainer>
+      <FormBox>
+        <Heading as="h1">{isLogin ? "Welcome Back" : "Create Account"}</Heading>
+        <Heading as="p">
+          {isLogin
+            ? "Login to access your FarZara account"
+            : "Join FarZara London for a premium experience"}
+        </Heading>
+
+        <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <InputGroup>
+              <label>Full Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Ahmad Ali"
+                onChange={handleChange}
+                required
+              />
+            </InputGroup>
+          )}
+
+          <InputGroup>
+            <label>Email Address</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="example@mail.com"
+              onChange={handleChange}
+              required
+            />
+          </InputGroup>
+
+          <InputGroup>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="enter password"
+              onChange={handleChange}
+              required
+            />
+          </InputGroup>
+
+          {/* {!isLogin && (
+            <InputGroup>
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="enter conform password"
+                onChange={handleChange}
+                required
+              />
+            </InputGroup>
+          )} */}
+
+          <SubmitButton type="submit" disabled={loading}>
+            {loading ? "Processing..." : isLogin ? "Login In" : "Sign Up"}
+          </SubmitButton>
+        </form>
+
+        <ToggleText>
+          {isLogin ? "Don't have an account?" : "Already have an account?"}
+          <span onClick={toggleMode}>
+            {isLogin ? " Register Account" : " Login here"}
+          </span>
+        </ToggleText>
+      </FormBox>
+    </AuthContainer>
+  );
+};
+
+export default AuthPage;
+
+// --- STYLED COMPONENTS ---
+
+const AuthContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+`;
+
+const FormBox = styled.div`
+  background: #fff;
+  padding: 4rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+`;
+const InputGroup = styled.div`
+  text-align: left;
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.9rem;
+    font-weight: 500;
+  }
+
+  input {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-md);
+    outline: none;
+    transition: border 0.3s;
+    &:focus {
+      border-color: #1a1a1a;
+    }
+  }
+`;
+
+const SubmitButton = styled.button`
+  width: 100%;
+  padding: 14px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
+const ToggleText = styled.p`
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #666;
+
+  span {
+    color: #1a1a1a;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;

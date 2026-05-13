@@ -1,24 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./CheckoutProductStyles";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import { useOrders } from "../../context/orderContext";
+
 import OrderSummary from "../CartProducts/OrderSummary";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
   const { cart, cartTotal } = useCart();
+  const { createOrder, success, order, error } = useOrders();
   const shipping = 200; // Flat rate as per screenshot
   const [paymentType, setPaymentType] = useState("card");
 
-  const handlePayment = (e) => {
-    e.preventDefault();
-    // Here you would normally validate the form
-    // alert("Processing your FarZara London Order...");
-    navigate("/order-success"); // We will build this next!
+  // Example: Gathering data from your existing cart/form state
+  const handlePlaceOrder = () => {
+    createOrder({
+      orderItems: cart, // From your Cart Context
+      shippingAddress: shippingDetails, // From your Form
+      paymentMethod: "PayPal",
+      totalPrice: cartTotal,
+    });
   };
+
+  useEffect(() => {
+    if (success && order) {
+      // Redirect to a unique tracking page using the new Order ID
+      navigate(`/order/${order._id}`);
+      // Important: Reset the success state so it doesn't loop
+      // dispatch({ type: 'ORDER_RESET' });
+    }
+  }, [success, navigate, order]);
+
   return (
     <S.CheckoutContainer>
-      <S.FormSection handleSubmit={handlePayment}>
+      <S.FormSection handleSubmit={handlePlaceOrder}>
         {/* CONTACT SECTION */}
         <S.FormBlock>
           <div
@@ -160,7 +176,7 @@ const CheckoutPage = () => {
           </S.PaymentBox>
         </S.FormBlock>
 
-        <S.PayButton type="submit" onClick={handlePayment}>
+        <S.PayButton type="submit" onClick={handlePlaceOrder}>
           Place Order
         </S.PayButton>
       </S.FormSection>
