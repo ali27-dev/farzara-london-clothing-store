@@ -1,8 +1,22 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import Heading from "../ui/Heading";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import styled from "styled-components";
+import Heading from "../ui/Heading";
+import Spinner from "../ui/Spinner";
+
+// --- Notification Component ---
+const Notification = ({ message, type, onClose }) => {
+  if (!message) return null;
+  return (
+    <NotifBox type={type}>
+      {message}
+      <span onClick={onClose} style={{ marginLeft: 12, cursor: "pointer" }}>
+        ×
+      </span>
+    </NotifBox>
+  );
+};
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -10,29 +24,44 @@ const AuthPage = () => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
+  const [notif, setNotif] = useState({ message: "", type: "" });
 
   const { authenticate, userInfo, loading, error, clearError } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const redirect = location.search ? location.search.split("=")[1] : "/";
-
-  // useEffect(() => {
-  //   if (userInfo) navigate(redirect);
-  // }, [navigate, userInfo, redirect]);
   const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     if (userInfo) {
-      navigate(from, { replace: true });
+      setNotif({ message: "Login/Signup successful!", type: "success" });
+      setTimeout(() => {
+        setNotif({ message: "", type: "" });
+        navigate(from, { replace: true });
+      }, 1200);
     }
   }, [userInfo, navigate, from]);
 
+  useEffect(() => {
+    if (error) {
+      // Show a user-friendly message for invalid login
+      if (
+        isLogin &&
+        (error.toLowerCase().includes("invalid email or password") ||
+          error.toLowerCase().includes("401"))
+      ) {
+        setNotif({ message: "Invalid email or password", type: "error" });
+      } else {
+        setNotif({ message: error, type: "error" });
+      }
+    }
+  }, [error, isLogin]);
+
   const toggleMode = () => {
     setIsLogin(!isLogin);
-    clearError(); // Remove error messages when switching forms
+    clearError();
+    setNotif({ message: "", type: "" });
   };
 
   const handleChange = (e) => {
@@ -41,16 +70,22 @@ const AuthPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!isLogin && formData.password !== formData.confirmPassword) {
-    //   return alert("Passwords don't match");
-    // }
-    // Call the global authenticate function
     authenticate(isLogin ? "login" : "signup", formData);
+    setFormData({ name: "", email: "", password: "" }); // Clear inputs after submit
   };
+
+  const handleNotifClose = () => setNotif({ message: "", type: "" });
+
+  if (loading) return <Spinner />;
 
   return (
     <AuthContainer>
       <FormBox>
+        <Notification
+          message={notif.message}
+          type={notif.type}
+          onClose={handleNotifClose}
+        />
         <Heading as="h1">{isLogin ? "Welcome Back" : "Create Account"}</Heading>
         <Heading as="p">
           {isLogin
@@ -65,8 +100,9 @@ const AuthPage = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Ahmad Ali"
+                placeholder="Full Name"
                 onChange={handleChange}
+                value={formData.name}
                 required
               />
             </InputGroup>
@@ -79,6 +115,7 @@ const AuthPage = () => {
               name="email"
               placeholder="example@mail.com"
               onChange={handleChange}
+              value={formData.email}
               required
             />
           </InputGroup>
@@ -90,22 +127,10 @@ const AuthPage = () => {
               name="password"
               placeholder="enter password"
               onChange={handleChange}
+              value={formData.password}
               required
             />
           </InputGroup>
-
-          {/* {!isLogin && (
-            <InputGroup>
-              <label>Confirm Password</label>
-              <input
-                type="password"
-                name="password"
-                placeholder="enter conform password"
-                onChange={handleChange}
-                required
-              />
-            </InputGroup>
-          )} */}
 
           <SubmitButton type="submit" disabled={loading}>
             {loading ? "Processing..." : isLogin ? "Login In" : "Sign Up"}
@@ -144,6 +169,7 @@ const FormBox = styled.div`
   max-width: 450px;
   text-align: center;
 `;
+
 const InputGroup = styled.div`
   text-align: left;
   margin-bottom: 15px;
@@ -196,4 +222,18 @@ const ToggleText = styled.p`
     cursor: pointer;
     text-decoration: underline;
   }
+`;
+
+const NotifBox = styled.div`
+  background: ${({ type }) => (type === "success" ? "#d4edda" : "#f8d7da")};
+  color: ${({ type }) => (type === "success" ? "#155724" : "#721c24")};
+  border: 1px solid
+    ${({ type }) => (type === "success" ? "#c3e6cb" : "#f5c6cb")};
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
