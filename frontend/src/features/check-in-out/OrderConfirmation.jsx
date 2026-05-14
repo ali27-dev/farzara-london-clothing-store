@@ -2,44 +2,17 @@ import React, { useEffect } from "react";
 import { Check } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./OrderConfirmationStyles";
-import { useCart } from "../../context/CartContext";
-
+import { useOrders } from "../../context/orderContext";
 const OrderConfirmation = () => {
-  const { clearCart } = useCart(); // Assuming you have a cart context to clear the cart after order confirmation
-  const location = useLocation();
+  const { order } = useOrders();
   const navigate = useNavigate();
 
-  // Retrieve data passed from Checkout state
-  // Fallback to mock data if accessed directly for development
-  const orderData = location.state?.order || {
-    id: "FZ-99284",
-    total: 39500,
-    method: "Cash on Delivery",
-    date: new Date().toLocaleDateString("en-GB"),
-    items: [
-      {
-        id: 1,
-        name: "3 Piece Lawn Printed Unstitched Suit",
-        qty: 1,
-        price: 7500,
-        image:
-          "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=200",
-      },
-      {
-        id: 2,
-        name: "3 Piece Lawn Embroidered Suit",
-        qty: 1,
-        price: 31800,
-        image:
-          "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=200",
-      },
-    ],
-  };
-
-  // UX Best Practice: Clear the cart once the order is confirmed
+  // Redirect if no order data (e.g. user refreshes page)
   useEffect(() => {
-    if (clearCart) clearCart();
-  }, [clearCart]);
+    if (!order) navigate("/");
+  }, [order, navigate]);
+
+  if (!order) return null;
 
   return (
     <S.SuccessWrapper>
@@ -60,31 +33,37 @@ const OrderConfirmation = () => {
       <S.OrderMetaGrid>
         <S.MetaItem>
           <span>Order Number</span>
-          <strong>#{orderData.id}</strong>
+          <strong>#{order._id}</strong>
         </S.MetaItem>
         <S.MetaItem>
           <span>Date</span>
-          <strong>{orderData.date}</strong>
+          <strong>{new Date(order.createdAt).toLocaleDateString()}</strong>
         </S.MetaItem>
         <S.MetaItem>
           <span>Total Amount</span>
-          <strong>Rs. {orderData.total.toLocaleString()}</strong>
+          <strong>Rs. {order.totalPrice}</strong>
         </S.MetaItem>
         <S.MetaItem>
           <span>Payment Method</span>
-          <strong>{orderData.method}</strong>
+          <strong>{order.paymentMethod}</strong>
         </S.MetaItem>
         <S.MetaItem style={{ gridColumn: "1 / -1" }}>
           <span>Shipping Address</span>
-          <strong>{orderData.address}</strong>
+          <strong>
+            {order.shippingAddress.address}, {order.shippingAddress.city},{" "}
+            {order.shippingAddress.country}
+          </strong>
         </S.MetaItem>
       </S.OrderMetaGrid>
 
-      {/* Product Summary & Buttons will go here next */}
+      {/* Product Summary & Buttons */}
       <S.ItemList>
-        {orderData.items.map((item) => (
-          <S.OrderItem key={item.id}>
-            <S.ItemImage src={item.image} alt={item.name} />
+        {order.orderItems.map((item, idx) => (
+          <S.OrderItem key={idx}>
+            <S.ItemImage
+              src={Array.isArray(item.images) ? item.images[0] : item.images}
+              alt={item.name}
+            />
             <S.ItemInfo>
               <h4>{item.name}</h4>
               <p>Qty: {item.qty}</p>
@@ -98,9 +77,6 @@ const OrderConfirmation = () => {
         <S.ActionBtn primary onClick={() => navigate("/")}>
           Continue Shopping
         </S.ActionBtn>
-        {/* <S.ActionBtn secondary onClick={() => navigate("/account/orders")}>
-          View My Orders
-        </S.ActionBtn> */}
       </S.ButtonGroup>
 
       <p style={{ marginTop: "4rem", fontSize: "1.2rem", color: "#999" }}>

@@ -8,33 +8,58 @@ import OrderSummary from "../CartProducts/OrderSummary";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
-  const { cart, cartTotal } = useCart();
-  const { createOrder, success, order, error } = useOrders();
+  const { cart, cartTotal, clearCart } = useCart();
+  const { createOrder, success, order } = useOrders();
   const shipping = 200; // Flat rate as per screenshot
-  const [paymentType, setPaymentType] = useState("card");
+  const [paymentMethod, setPaymentMethod] = useState("");
+  const [deliveryDetails, setDeliveryDetails] = useState({
+    address: "",
+    city: "",
+    postalCode: "",
+    country: "Pakistan",
+    phone: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    apartment: "",
+  });
+
+  const handleInputChange = (e) => {
+    setDeliveryDetails({ ...deliveryDetails, [e.target.name]: e.target.value });
+  };
 
   // Example: Gathering data from your existing cart/form state
-  const handlePlaceOrder = () => {
+  const handlePlaceOrder = (e) => {
+    e.preventDefault();
     createOrder({
-      orderItems: cart, // From your Cart Context
-      shippingAddress: shippingDetails, // From your Form
-      paymentMethod: "PayPal",
-      totalPrice: cartTotal,
+      orderItems: cart.map((item) => ({
+        name: item.name,
+        qty: item.qty,
+        images: Array.isArray(item.images) ? item.images[0] : item.images, // send first image or string
+        price: item.price,
+        product: item._id || item.product, // must be a valid ObjectId string
+      })),
+      shippingAddress: {
+        address: deliveryDetails.address,
+        city: deliveryDetails.city,
+        postalCode: deliveryDetails.postalCode,
+        country: deliveryDetails.country,
+      },
+      paymentMethod: paymentMethod, // must be one of the allowed values
+      totalPrice: cartTotal + shipping,
     });
   };
 
   useEffect(() => {
     if (success && order) {
-      // Redirect to a unique tracking page using the new Order ID
-      navigate(`/order/${order._id}`);
-      // Important: Reset the success state so it doesn't loop
-      // dispatch({ type: 'ORDER_RESET' });
+      clearCart(); // Clear cart state & localStorage
+      navigate(`/order-success`); // Redirect to tracking
     }
-  }, [success, navigate, order]);
+  }, [success, order, navigate]);
 
   return (
     <S.CheckoutContainer>
-      <S.FormSection handleSubmit={handlePlaceOrder}>
+      <S.FormSection as="form" onSubmit={handlePlaceOrder}>
         {/* CONTACT SECTION */}
         <S.FormBlock>
           <div
@@ -45,13 +70,16 @@ const CheckoutPage = () => {
             }}
           >
             <h2 style={{ fontSize: "1.8rem" }}>Contact</h2>
-            <button style={{ textDecoration: "underline", fontSize: "1.3rem" }}>
-              Sign in
-            </button>
           </div>
           <S.InputWrapper>
             <S.FloatingLabel>Email</S.FloatingLabel>
-            <S.StyledInput type="email" placeholder="Enter your email" />
+            <S.StyledInput
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              value={deliveryDetails.email}
+              onChange={handleInputChange}
+            />
           </S.InputWrapper>
           <label style={{ fontSize: "1.3rem", display: "flex", gap: "8px" }}>
             <input type="checkbox" /> Email me with news and offers
@@ -64,7 +92,12 @@ const CheckoutPage = () => {
 
           <S.InputWrapper>
             <S.FloatingLabel>Country/Region</S.FloatingLabel>
-            <S.StyledInput as="select">
+            <S.StyledInput
+              name="country"
+              as="select"
+              value={deliveryDetails.country}
+              onChange={handleInputChange}
+            >
               <option>Pakistan</option>
               <option>United Kingdom</option>
             </S.StyledInput>
@@ -73,37 +106,78 @@ const CheckoutPage = () => {
           <S.InputGroup>
             <S.InputWrapper>
               <S.FloatingLabel>First name</S.FloatingLabel>
-              <S.StyledInput placeholder="John" required />
+              <S.StyledInput
+                name="firstName"
+                placeholder="John"
+                value={deliveryDetails.firstName}
+                onChange={handleInputChange}
+                required
+              />
             </S.InputWrapper>
             <S.InputWrapper>
               <S.FloatingLabel>Last name</S.FloatingLabel>
-              <S.StyledInput placeholder="Doe" required />
+              <S.StyledInput
+                name="lastName"
+                placeholder="Doe"
+                value={deliveryDetails.lastName}
+                onChange={handleInputChange}
+                required
+              />
             </S.InputWrapper>
           </S.InputGroup>
 
           <S.InputWrapper>
             <S.FloatingLabel>Address</S.FloatingLabel>
-            <S.StyledInput placeholder="123 Main St" required />
+            <S.StyledInput
+              name="address"
+              placeholder="123 Main St"
+              value={deliveryDetails.address}
+              onChange={handleInputChange}
+              required
+            />
           </S.InputWrapper>
           <S.InputWrapper>
             <S.FloatingLabel>Apartment, suite, etc. (optional)</S.FloatingLabel>
-            <S.StyledInput required />
+            <S.StyledInput
+              name="apartment"
+              placeholder="Apartment, suite, etc. (optional)"
+              value={deliveryDetails.apartment}
+              onChange={handleInputChange}
+            />
           </S.InputWrapper>
 
           <S.InputGroup>
             <S.InputWrapper>
               <S.FloatingLabel>City</S.FloatingLabel>
-              <S.StyledInput placeholder="London" required />
+              <S.StyledInput
+                name="city"
+                placeholder="London"
+                value={deliveryDetails.city}
+                onChange={handleInputChange}
+                required
+              />
             </S.InputWrapper>
             <S.InputWrapper>
               <S.FloatingLabel>Postal code (optional)</S.FloatingLabel>
-              <S.StyledInput placeholder="12345" required />
+              <S.StyledInput
+                name="postalCode"
+                placeholder="12345"
+                value={deliveryDetails.postalCode}
+                onChange={handleInputChange}
+                required
+              />
             </S.InputWrapper>
           </S.InputGroup>
 
           <S.InputWrapper>
             <S.FloatingLabel>Phone</S.FloatingLabel>
-            <S.StyledInput placeholder="+1 234 567 890" required />
+            <S.StyledInput
+              name="phone"
+              placeholder="+1 234 567 890"
+              value={deliveryDetails.phone}
+              onChange={handleInputChange}
+              required
+            />
           </S.InputWrapper>
         </S.FormBlock>
 
@@ -125,11 +199,15 @@ const CheckoutPage = () => {
 
           <S.PaymentBox>
             <S.PaymentOption
-              active={paymentType === "card"}
-              onClick={() => setPaymentType("card")}
+              active={paymentMethod === "card"}
+              onClick={() => setPaymentMethod("card")}
             >
               <div>
-                <input type="radio" checked={paymentType === "card"} readOnly />
+                <input
+                  type="radio"
+                  checked={paymentMethod === "card"}
+                  readOnly
+                />
                 Debit / Credit Card
               </div>
               <img
@@ -140,7 +218,7 @@ const CheckoutPage = () => {
             </S.PaymentOption>
 
             {/* CONDITIONAL CARD FIELDS (Only show if 'card' is selected) */}
-            {paymentType === "card" && (
+            {paymentMethod === "card" && (
               <div
                 style={{
                   padding: "1.5rem",
@@ -165,20 +243,22 @@ const CheckoutPage = () => {
             )}
 
             <S.PaymentOption
-              active={paymentType === "cod"}
-              onClick={() => setPaymentType("cod")}
+              active={paymentMethod === "Cash on Delivery"}
+              onClick={() => setPaymentMethod("Cash on Delivery")}
             >
               <div>
-                <input type="radio" checked={paymentType === "cod"} readOnly />
+                <input
+                  type="radio"
+                  checked={paymentMethod === "Cash on Delivery"}
+                  readOnly
+                />
                 Cash on Delivery (COD)
               </div>
             </S.PaymentOption>
           </S.PaymentBox>
         </S.FormBlock>
 
-        <S.PayButton type="submit" onClick={handlePlaceOrder}>
-          Place Order
-        </S.PayButton>
+        <S.PayButton type="submit">Place Order</S.PayButton>
       </S.FormSection>
 
       {/* RIGHT: ORDER SUMMARY SECTION */}

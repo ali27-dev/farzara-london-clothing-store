@@ -56,7 +56,7 @@ function CartProvider({ children }) {
       )
     );
   };
-
+  const clearCart = () => setCart([]);
   const cartTotal = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
   const cartCount = cart.reduce((acc, item) => acc + item.qty, 0);
 
@@ -70,6 +70,7 @@ function CartProvider({ children }) {
         addToCart,
         removeFromCart,
         updateQty,
+        clearCart,
         cartTotal,
         cartCount,
       }}
