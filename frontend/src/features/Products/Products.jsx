@@ -9,6 +9,7 @@ import Heading from "../../ui/Heading";
 import FilterBar from "../../ui/FilterBar";
 import { useProducts } from "../../context/productsContext";
 import Spinner from "../../ui/Spinner";
+import SearchBar from "../../ui/SearchBar";
 // ...existing imports...
 
 const StyleProductContainer = styled.div`
@@ -66,6 +67,8 @@ function Products() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [sortOpen, setSortOpen] = useState(false);
   const filterBarRef = useRef();
+  const [search, setSearch] = useState(""); // You can handle search logic here or lift it up as needed
+  // const handleSearchChange = (e) => setSearch(e.target.value);
 
   // Close filter menu on outside click (mobile)
   useEffect(() => {
@@ -107,8 +110,13 @@ function Products() {
       default:
         break;
     }
+    if (search.trim()) {
+      filtered = filtered.filter((p) =>
+        p.name.toLowerCase().includes(search.trim().toLowerCase())
+      );
+    }
     return filtered;
-  }, [activeFilter, products]);
+  }, [activeFilter, products, search]);
 
   const showMore = () => setVisibleCount((prev) => prev + 20);
   if (loading) return <Spinner />;
@@ -124,6 +132,14 @@ function Products() {
           and exclusive seasonal pieces. Find your new favorites and elevate
           your wardrobe with FarZara's signature style.
         </Heading>
+        <div style={{ margin: "2rem auto 0 auto", maxWidth: 400 }}>
+          <SearchBar
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search products..."
+            desktopOnly
+          />
+        </div>
       </ProductsHeader>
 
       <FilterBar

@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import MobileSearch from "./MobileSearch";
+import SearchBar from "./SearchBar";
+import { useState } from "react";
 
 const NavLinksUL = styled.ul`
   display: flex;
@@ -57,28 +58,54 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-function NavLinks({ isOpen }) {
+function NavLinks({ isOpen, setIsOpen }) {
+  const [search, setSearch] = useState("");
+  const handleSearchChange = (e) => setSearch(e.target.value);
+
+  const handleLinkClick = () => {
+    if (setIsOpen) setIsOpen(false);
+  };
+
   return (
     <NavLinksUL isOpen={isOpen}>
-      <MobileSearch />
+      <li>
+        <SearchBar
+          value={search}
+          onChange={handleSearchChange}
+          placeholder="Search..."
+          mobileOnly
+        />
+      </li>
       {/* These links now control the SPA navigation */}
       <li>
-        <StyledNavLink to="/home">Home</StyledNavLink>
+        <StyledNavLink to="/home" onClick={handleLinkClick}>
+          Home
+        </StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/products">Products</StyledNavLink>
+        <StyledNavLink to="/products" onClick={handleLinkClick}>
+          Products
+        </StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/unstitched">Unstitched</StyledNavLink>
+        <StyledNavLink to="/unstitched" onClick={handleLinkClick}>
+          Unstitched
+        </StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/sales">Sales</StyledNavLink>
+        <StyledNavLink to="/sales" onClick={handleLinkClick}>
+          Sales
+        </StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/contactus">Contact us</StyledNavLink>
+        <StyledNavLink to="/contactus" onClick={handleLinkClick}>
+          Contact us
+        </StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/track-order">Track Order</StyledNavLink>
+        <StyledNavLink to="/track-order" onClick={handleLinkClick}>
+          Track Order
+        </StyledNavLink>
       </li>
     </NavLinksUL>
   );

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 import Logo from "./Logo";
-import DesktopSearch from "./DesktopSearch";
 import NavLinks from "./NavLinks";
 import ActionIcons from "./ActionIcons";
+import SearchBar from "./SearchBar";
 
 // --- Styled Components ---
 
@@ -25,10 +25,23 @@ const Nav = styled.nav`
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef();
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
   return (
-    <Nav>
+    <Nav ref={navRef}>
       <Logo />
-      <DesktopSearch />
       <NavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
       <ActionIcons isOpen={isOpen} setIsOpen={setIsOpen} />
     </Nav>

@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useReducer,
-  useEffect,
-  useContext,
-  use,
-} from "react";
+import React, { createContext, useReducer, useEffect, useContext } from "react";
 import axios from "axios";
 
 // 1. Initialize the Context
