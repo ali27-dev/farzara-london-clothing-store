@@ -111,8 +111,11 @@ function Products() {
         break;
     }
     if (search.trim()) {
-      filtered = filtered.filter((p) =>
-        p.name.toLowerCase().includes(search.trim().toLowerCase())
+      const searchTerm = search.trim().toLowerCase();
+      filtered = filtered.filter(
+        (p) =>
+          p.name.toLowerCase().includes(searchTerm) ||
+          String(p.id).toLowerCase().includes(searchTerm)
       );
     }
     return filtered;
@@ -152,9 +155,14 @@ function Products() {
       />
 
       <S.ProductsGrid>
-        {filteredProducts.slice(0, visibleCount).map((products) => (
-          <ProductCard key={products.id} product={products} />
-        ))}
+        {filteredProducts
+          .slice(0, visibleCount)
+          .map(
+            (products) => (
+              console.log(products.id),
+              (<ProductCard key={products.id} product={products} />)
+            )
+          )}
       </S.ProductsGrid>
       {filteredProducts.length > visibleCount && (
         <SeeMoreBtn onClick={showMore}>See More Products</SeeMoreBtn>

@@ -42,7 +42,7 @@ const StyledSearchBar = styled.div`
     desktopOnly &&
     `
     @media (max-width: 1024px) {
-      display: none;
+      display: flex;
     }
   `}
   ${({ mobileOnly }) =>
@@ -50,7 +50,7 @@ const StyledSearchBar = styled.div`
     `
     display: none;
     @media (max-width: 1024px) {
-      display: flex;
+      display: none;
       margin-bottom: 1rem;
       background: #f0f0f0;
     }

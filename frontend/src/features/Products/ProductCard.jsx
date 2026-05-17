@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";
 import * as S from "./ProductCardStyles";
 import { useCart } from "../../context/CartContext";
+import Heading from "../../ui/Heading";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -76,6 +77,17 @@ const ProductCard = ({ product }) => {
       </Link>
 
       <S.Info>
+        <Heading
+          as="h5"
+          style={{
+            textTransform: "lowercase",
+            fontSize: "1.1rem",
+            fontWeight: 800,
+            color: "var(--color-grey-600)",
+          }}
+        >
+          #{product.id}
+        </Heading>
         <S.Category>
           {category} • {season}
         </S.Category>
