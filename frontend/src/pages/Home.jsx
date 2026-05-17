@@ -1,10 +1,10 @@
-import HeroSection from "../ui/HeroSection";
+import HeroBanner from "../ui/HeroBanner";
 import Products from "../features/Products/Products";
 
 function Home() {
   return (
     <>
-      <HeroSection />
+      <HeroBanner />
       <Products />
     </>
   );

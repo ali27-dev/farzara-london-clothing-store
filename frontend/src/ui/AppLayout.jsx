@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import FooterSection from "./FooterSection";
+import FlexBar from "./FlexBar";
 
 const StyleAppLayout = styled.div``;
 
@@ -24,6 +25,7 @@ function AppLayout() {
   return (
     <StyleAppLayout>
       <Navbar />
+      <FlexBar />
       <StyleMain>
         <Container>
           <Outlet />

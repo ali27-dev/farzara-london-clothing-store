@@ -155,14 +155,9 @@ function Products() {
       />
 
       <S.ProductsGrid>
-        {filteredProducts
-          .slice(0, visibleCount)
-          .map(
-            (products) => (
-              console.log(products.id),
-              (<ProductCard key={products.id} product={products} />)
-            )
-          )}
+        {filteredProducts.slice(0, visibleCount).map((products) => (
+          <ProductCard key={products.id} product={products} />
+        ))}
       </S.ProductsGrid>
       {filteredProducts.length > visibleCount && (
         <SeeMoreBtn onClick={showMore}>See More Products</SeeMoreBtn>
